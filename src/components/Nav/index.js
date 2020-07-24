@@ -1,18 +1,17 @@
-import React from "react"
-import logo from "../../assets/images/Squid.jpg"
-import "./style.css"
+import React from "react";
+import "./style.css";
 
 function Nav() {
-    return(
-        <div className="row bar">
-            <div className="col">
-                <img src={logo} alt="logo goes here" className="logo"></img>
-            </div>
-            <div className="col">
-                <p>hamburger goes here</p>
-            </div>
-        </div>
-    )
+  return (
+    <div className="row bar">
+      <div className="col">
+        <h1 className="logo">TGBL</h1>
+      </div>
+      <div className="col">
+        <i className="fas fa-bars fa-3x hamburger"></i>
+      </div>
+    </div>
+  );
 }
 
-export default Nav
+export default Nav;
