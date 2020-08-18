@@ -1,23 +1,22 @@
-import React from "react"
-import "./style.css"
+import React from "react";
+import HamburgerLink from "../HamburgerLink/index";
+import "./style.css";
 
-function hamburgerMenu() {
-    return(
-        <div className="hamburger-menu">
-            <div className="row">
-                <input className="search-bar" id="search-input"></input>
-            </div>
-            <div className="row hamburger-link">
-                <h2>Account</h2>
-            </div>
-            <div className="row">
-                <h2>Account</h2>
-            </div>
-            <div className="row">
-                <h2>Account</h2>
-            </div>
+function Hamburger({ hamburgerState }) {
+
+  
+    return (
+      <div className={hamburgerState === "hide" ? "hide" : "hamburger-menu"}>
+        <div className="col">
+          <div className="row">
+            <input className="search-bar" id="search-input" placeholder="Search for lists or users"></input>
+          </div>
+          <HamburgerLink name="Account" />
+          <HamburgerLink name="My Lists" />
+          <HamburgerLink name="Settings" />
         </div>
+      </div>
     )
 }
 
-export default hamburgerMenu
+export default Hamburger;

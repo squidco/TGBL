@@ -1,5 +1,16 @@
 .hamburger-menu{
     height: 100vh;
     z-index: 1;
-    background-color: blue;
+    background-color: rgb(92, 92, 92);
+}
+
+.search-bar{
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.hide{
+    display: none;
 }

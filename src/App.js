@@ -1,18 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav/index";
 import "./App.css";
 import Landing from "./pages/Landing.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Hamburger from "./components/Hamburger";
 
 function App() {
+
+  const [hamburgerState, setHamburgerState] = useState("hide")
+
+  function handleHamburgerClick(){
+    console.log('lol')
+    if(hamburgerState === "hide"){
+      setHamburgerState("show")
+    } else{
+      setHamburgerState("hide")
+    }
+  }
+
   return (
-    <>
-      <Nav></Nav>
-      <div>
-        <Hamburger></Hamburger>
-        <Landing></Landing>
-      </div>
-    </>
+    <Router>
+        <Nav handleHamburgerClick={handleHamburgerClick}></Nav>
+        <Hamburger hamburgerState={hamburgerState}></Hamburger>
+        <Switch>
+          <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route exact path="/account">
+            
+          </Route>
+          <Route exact path="/lists/:id">
+
+          </Route>
+          <Route exact path="/explore">
+
+          </Route>
+          <Route exact path="/accounts/:id">
+
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
