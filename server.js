@@ -14,7 +14,7 @@ app.get("/ping", function (req, res) {
   return res.send("pong");
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/spellbooks", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/spellBooks", {
   useNewUrlParser: true,
 });
 
