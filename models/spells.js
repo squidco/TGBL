@@ -7,8 +7,8 @@ const SpellSchema = new mongoose.Schema({
     lowercase: true,
     trim: true,
   },
-  desc: String,
-  higher_level: String,
+  desc: [String],
+  higher_level: [String],
   range: String,
   components: [String],
   ritual: Boolean,
@@ -18,7 +18,7 @@ const SpellSchema = new mongoose.Schema({
   level: String,
   damage: {
     damage_type: String,
-    damage_at_slot_level: [String],
+    damage_at_slot_level: Object,
   },
   dc: {
     dc_type: String,
@@ -28,7 +28,7 @@ const SpellSchema = new mongoose.Schema({
     shape: String,
     size: String,
   },
-  classes: [String],
+  classes: [Object],
 });
 
 module.exports = mongoose.model("Spell", SpellSchema);

@@ -7,8 +7,8 @@ const spellsSeed = [
   {
     spell_name: "Abra Cadabra",
     name: "abracadabra",
-    desc: "Bamboozles fools",
-    higher_level: "Bamboozles smart fools",
+    desc: ["Bamboozles fools"],
+    higher_level: ["Bamboozles smart fools"],
     range: "Spitting Distance",
     components: ["S", "A"],
     ritual: false,
@@ -18,7 +18,7 @@ const spellsSeed = [
     level: "9",
     damage: {
       damage_type: "mindfuck",
-      damage_at_slot_level: ["1D8", "2D8"],
+      damage_at_slot_level: { "1": "2d8", "2": "3d8" },
     },
     dc: {
       dc_type: "Wisdom",
@@ -28,7 +28,7 @@ const spellsSeed = [
       shape: "cube",
       size: "15 football fields",
     },
-    classes: ["Bard", "Wizard", "Pissboy"],
+    classes: [{ name: "Bard" }, { name: "Wizard" }, { name: "Pissboy" }],
   },
 ];
 
