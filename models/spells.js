@@ -16,19 +16,11 @@ const SpellSchema = new mongoose.Schema({
   concentration: Boolean,
   casting_time: String,
   level: String,
-  damage: {
-    damage_type: String,
-    damage_at_slot_level: Object,
-  },
-  dc: {
-    dc_type: String,
-    dc_success: String
-  },
-  area_of_effect: {
-    shape: String,
-    size: String,
-  },
-  classes: [Object],
+  damage: Object,
+  heal_at_slot_level: Object,
+  dc: Object,
+  area_of_effect: Object,
+  classes: [Object]
 });
 
 module.exports = mongoose.model("Spell", SpellSchema);
