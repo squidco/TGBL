@@ -16,6 +16,7 @@ app.get("/ping", function (req, res) {
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/spellBooks", {
   useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 app.use(apiRoutes);
