@@ -2,8 +2,8 @@
   background-color: black;
   display: grid;
   grid-template-rows: 10px 50px;
-  grid-template-columns: auto 50px 50vw 50px auto;
-  box-shadow: 0px 10px 8px rgb(14, 14, 14);
+  grid-template-columns: 10vw 80vw 10vw;
+  box-shadow: 0px 10px 8px rgb(0, 0, 0);
   z-index: 2;
 }
 
@@ -38,8 +38,9 @@
 .hamburger-container {
   grid-row-start: 2;
   grid-row-end: 3;
-  grid-column-end: 5;
-  grid-column-start: 4;
+  grid-column-end: 3;
+  grid-column-start: 2;
+  justify-self: end;
 }
 
 .hamburger:hover {

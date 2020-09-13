@@ -16,6 +16,7 @@ function SpellBook() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    
     console.log("submitted");
   }
 
