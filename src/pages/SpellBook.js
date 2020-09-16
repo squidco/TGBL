@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
+import {fadeOut, fadeIn, changePage} from "../utils/css/animations"
 import spellList from "../components/spellList/index";
 
 function SpellBook() {
   const [playerInfo, setPlayerInfo] = useState({});
 
   const [spells, setSpells] = useState([]);
+
+  useEffect(() => {
+    fadeIn("spellbook-container");
+  });
 
   function handleFormInput(event) {
     event.preventDefault();
@@ -16,12 +21,12 @@ function SpellBook() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    
+
     console.log("submitted");
   }
 
   return (
-    <>
+    <div className="spellbook-grid" id="spellbook-container">
       <form>
         <label for="playerclass">Choose your class:</label>
         <select onChange={handleFormInput} id="playerClass" name="playerClass">
@@ -37,6 +42,10 @@ function SpellBook() {
         <button onClick={handleFormSubmit}>Submit</button>
       </form>
 
+    <div>
+      <p className="hidden">buttbuttstinky</p>
+    </div>
+
       <div>
         <spellList
           playerClass={playerInfo.playerClass}
@@ -44,7 +53,7 @@ function SpellBook() {
           listOfSpells={spells}
         />
       </div>
-    </>
+    </div>
   );
 }
 
