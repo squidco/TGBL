@@ -17,6 +17,7 @@ function test2(event) {
   container.classList.add("fade-out")
   if (page !== undefined) {
     setInterval(() => {
+      container.classList.add("hidden")
       var url = window.location.href + page;
       window.location.assign(url);
     }, 2000);

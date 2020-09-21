@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import {fadeOut, fadeIn, changePage} from "../utils/css/animations"
+import { fadeOut, fadeIn, changePage } from "../utils/css/animations";
 import spellList from "../components/spellList/index";
+import PlayerLevelList from "../components/PlayerLevelList/index";
+import PlayerLevelListOptions from "../components/PlayerLevelListOptions/index";
 
 function SpellBook() {
-  const [playerInfo, setPlayerInfo] = useState({});
+  const [playerInfo, setPlayerInfo] = useState({
+    playerClass: "Bard",
+  });
 
   const [spells, setSpells] = useState([]);
 
@@ -25,10 +29,21 @@ function SpellBook() {
     console.log("submitted");
   }
 
+  function listCreator(listLength) {
+    var list = [];
+    for (let i = 0; i < listLength; i++) {
+      list.push(i);
+      // console.log(list)
+    }
+    return list;
+  }
+
+  listCreator(20);
+
   return (
     <div className="spellbook-grid" id="spellbook-container">
-      <form>
-        <label for="playerclass">Choose your class:</label>
+      <form className="item-b">
+        <label>Choose your class:</label>
         <select onChange={handleFormInput} id="playerClass" name="playerClass">
           <option value="Bard">Bard</option>
           <option value="Cleric">Cleric</option>
@@ -39,20 +54,12 @@ function SpellBook() {
           <option value="Warlock">Warlock</option>
           <option value="Wizard">Wizard</option>
         </select>
-        <button onClick={handleFormSubmit}>Submit</button>
+        <button onClick={handleFormSubmit}>Next</button>
+        <label>Select your current level:</label>
+        <PlayerLevelList handleFormInput={handleFormInput}>
+          <PlayerLevelListOptions listLength={20}></PlayerLevelListOptions>
+        </PlayerLevelList>
       </form>
-
-    <div>
-      <p className="hidden">buttbuttstinky</p>
-    </div>
-
-      <div>
-        <spellList
-          playerClass={playerInfo.playerClass}
-          playerLevel={playerInfo.playerLevel}
-          listOfSpells={spells}
-        />
-      </div>
     </div>
   );
 }
