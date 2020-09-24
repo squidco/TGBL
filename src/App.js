@@ -4,7 +4,8 @@ import "./App.css";
 import Landing from "./pages/Landing.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Hamburger from "./components/Hamburger";
-import SpellBook from "./pages/SpellBook";
+import ChooseClass from "./pages/ChooseClass";
+import Spellbook from "./pages/Spellbook";
 
 function App() {
   const [hamburgerState, setHamburgerState] = useState("hide");
@@ -26,12 +27,12 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route exact path="/spellbook">
-          <SpellBook />
+        <Route exact path="/chooseclass">
+          <ChooseClass />
         </Route>
-        <Route exact path="/lists/:id"></Route>
-        <Route exact path="/explore"></Route>
-        <Route exact path="/accounts/:id"></Route>
+        <Route exact path="/spellbook">
+          <Spellbook></Spellbook>
+        </Route>
       </Switch>
     </Router>
   );

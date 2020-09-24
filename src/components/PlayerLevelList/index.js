@@ -1,13 +1,24 @@
-import React from "react"
-import "./style.css"
+import React from "react";
+import PlayerLevelListOptions from "../PlayerLevelListOptions";
+import "./style.css";
 
-function PlayerLevelList({handleFormInput, children}){
-return (
+function PlayerLevelList({ handleFormInput, listLength }) {
+  var list = [];
 
-<select onChange={handleFormInput} id="playerLevel" name="playerLevel">
-    {children}
-</select>
-)
+  for (let i = 1; i < listLength + 1; i++) {
+    list.push(i);
+  }
+
+  return (
+    <>
+      <label>Select your current level:</label>
+      <select onChange={handleFormInput} id="playerLevel" name="playerLevel">
+        {list.map((el) => (
+          <PlayerLevelListOptions level={el} />
+        ))}
+      </select>
+    </>
+  );
 }
 
-export default PlayerLevelList
+export default PlayerLevelList;

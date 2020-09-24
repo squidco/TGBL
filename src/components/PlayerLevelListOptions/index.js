@@ -1,9 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function PlayerLevelListOptions({ listLength }) {
-  for (var i = 0; i < listLength; i++) {
-    return <option value={i}>{i}</option>;
-  }
+function PlayerLevelListOptions({ level }) {
+  return <option value={level}>{level}</option>;
 }
 export default PlayerLevelListOptions;

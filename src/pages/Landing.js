@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { fadeOut, changePage, test2 } from "../utils/css/animations";
+import { fadeOut } from "../utils/css/animations";
 import "./style.css";
 
 function Landing() {
-  function test(event) {
-    console.log(event.target.classList);
-  }
 
   return (
     <div className="landing-page-grid" id="landing-page-container">
@@ -28,7 +24,7 @@ function Landing() {
           I am working on that.
         </p>
         <p className="">Now are you ready to start your adventure?</p>
-        <button className="start-btn" data-page="spellbook" data-container="landing-page-container" onClick={test2}>
+        <button className="start-btn" data-page="chooseclass" data-container="landing-page-container" onClick={fadeOut}>
           Get Started
         </button>
       </div>

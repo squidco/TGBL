@@ -3,25 +3,30 @@ function fadeIn(id) {
   container.classList.add("fade-in");
 }
 
-function fadeOut(containerId, page) {
-  var container = document.getElementById(containerId);
-  container.classList.add("fade-out");
-  setInterval(() => {
-    changePage(page);
-  }, 2000);
-}
-
-function test2(event) {
-  var page = event.target.dataset.page
-  var container = document.getElementById(event.target.dataset.container);
-  container.classList.add("fade-out")
-  if (page !== undefined) {
-    setInterval(() => {
-      container.classList.add("hidden")
-      var url = window.location.href + page;
-      window.location.assign(url);
-    }, 2000);
-  }
+function fadeOut(event) {
+  
+  // if (newPage === undefined) {
+    var page = event.target.dataset.page;
+    var container = document.getElementById(event.target.dataset.container);
+    container.classList.add("fade-out");
+    if (page !== undefined) {
+      setInterval(() => {
+        container.classList.add("hidden");
+        var url = window.location.origin + "/" + page;
+        window.location.assign(url);
+      }, 2000);
+    }
+  // } else if (newPage && fadeContainer) {
+  //   var parameterContainer = document.getElementById(fadeContainer);
+  //   parameterContainer.classList.add("fade-out");
+  //   if (newPage !== undefined) {
+  //     setInterval(() => {
+  //       parameterContainer.classList.add("hidden");
+  //       var url = window.location.origin + "/" + newPage;
+  //       window.location.assign(url);
+  //     }, 2000);
+  //   }
+  // }
 }
 
 function changePage(page) {
@@ -29,4 +34,4 @@ function changePage(page) {
   window.location.assign(url);
 }
 
-export { changePage, fadeOut, fadeIn, test2 };
+export { changePage, fadeOut, fadeIn };
