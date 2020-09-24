@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { fadeOut, fadeIn, changePage } from "../utils/css/animations";
+import { fadeOut, fadeOutWithParams, fadeIn, changePage } from "../utils/css/animations";
 import PlayerLevelList from "../components/PlayerLevelList/index";
 import PlayerClassList from "../components/PlayerClassList";
 
@@ -30,7 +30,7 @@ function ChooseClass() {
     console.log(playerInfo)
     localStorage.setItem("playerClass", playerInfo.playerClass)
     localStorage.setItem("playerLevel", playerInfo.playerLevel)
-    fadeOut()
+    fadeOutWithParams("spellbook", "spellbook-container")
   }
 
   return (
