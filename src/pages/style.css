@@ -1,0 +1,82 @@
+.landing-page-grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 10vw 80vw 10vw;
+}
+
+.spellbook-grid {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 10vw 80vw 10vw;
+}
+
+.title {
+  font-size: 3rem;
+  grid-row: 1/2;
+  grid-column: 2 / 3;
+  text-align: center;
+  margin: auto;
+  font-family: "Germania One", cursive;
+  color: rgb(0, 0, 0);
+}
+
+.item-a {
+  grid-row: 1/2;
+  grid-column: 2 / 3;
+}
+
+.item-b {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+
+.item-c {
+  grid-row: 4/5;
+  grid-column: 2/3;
+}
+
+.words {
+  /* border-bottom: solid black 1px; */
+  text-align: justify;
+}
+
+.start-btn {
+  border: solid 2px rgb(21, 179, 21);
+  padding: 5px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: rgb(31, 255, 31);
+  color: rgb(255, 255, 255);
+  align-self: center;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.fade-out {
+  animation-duration: 2s;
+  animation-name: fadeOut;
+}
+.fade-in {
+  animation-duration: 2s;
+  animation-name: fadeIn;
+}
+
+.hidden {
+  display: none;
+}
