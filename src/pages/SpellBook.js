@@ -8,7 +8,7 @@ function Spellbook() {
 
   switch (playerClass) {
     case "wizard":
-    //   <Wizard playerLevel={playerLevel} />;
+      // <Wizard playerLevel={playerLevel} />;
     console.log("wizard")
       break;
     case "bard":

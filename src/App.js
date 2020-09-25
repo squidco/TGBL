@@ -11,7 +11,6 @@ function App() {
   const [hamburgerState, setHamburgerState] = useState("hide");
 
   function handleHamburgerClick() {
-    console.log("lol");
     if (hamburgerState === "hide") {
       setHamburgerState("show");
     } else {
@@ -31,7 +30,7 @@ function App() {
           <ChooseClass />
         </Route>
         <Route exact path="/spellbook">
-          <Spellbook></Spellbook>
+          <Spellbook />
         </Route>
       </Switch>
     </Router>
