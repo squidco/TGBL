@@ -69,11 +69,11 @@
 }
 
 .fade-out {
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-name: fadeOut;
 }
 .fade-in {
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-name: fadeIn;
 }
 

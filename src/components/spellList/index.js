@@ -2,7 +2,7 @@ import React from "react";
 import spellListItem from "../spellListItem/index.js";
 import "./style.css";
 
-function spellList({ playerClass, level, listOfSpells }) {
+function spellList({ listOfSpells }) {
   return (
     <ul>
       {listOfSpells.map((element) => (
