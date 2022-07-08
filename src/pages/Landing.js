@@ -2,36 +2,22 @@ import { render } from "@testing-library/react";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import NextButton from "../components/NextButton";
-// import { fadeOut, fadeOutWithParams, test } from "../utils/css/animations";
 import "./style.css";
 
 function Landing() {
   const [transition, setTransitionState] = useState({
     start: false,
-    complete: false,
   });
 
-  function test() {
+  function changePage(page) {
     if (transition.start === false) {
       setTransitionState({
         start: true,
       });
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          // setTransitionState({ complete: true });
-          resolve(console.log("bingo"));
-        }, 1000);
-      });
+      setTimeout(() => {
+        window.location.href = page;
+      }, 1000);
     }
-  }
-
-  async function changePage(page) {
-    const buffer = await test();
-    console.log(page);
-    console.log(transition);
-    console.log("If statement");
-    // render(<Redirect to={page} />)
-    window.location.href = page
   }
 
   return (
@@ -61,7 +47,7 @@ function Landing() {
           I am working on that.
         </p>
         <p className="">Now are you ready to start your adventure?</p>
-        <NextButton text="Next" click={test} />
+        <NextButton text="Next" click={changePage} />
         <button onClick={() => changePage("/chooseclass")}>SpellSlots</button>
       </div>
     </div>
