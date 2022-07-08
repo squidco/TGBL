@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import NextButton from "../components/NextButton";
@@ -15,17 +16,23 @@ function Landing() {
       setTransitionState({
         start: true,
       });
-      var transitionTimer = setInterval(() => {
-        setTransitionState({ complete: true });
-        clearInterval(transitionTimer);
-      }, 1000);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // setTransitionState({ complete: true });
+          resolve(console.log("bingo"));
+        }, 1000);
+      });
     }
   }
 
-  if (transition.complete === true) {
-    return <Redirect to="chooseclass" />;
+  async function changePage(page) {
+    const buffer = await test();
+    console.log(page);
+    console.log(transition);
+    console.log("If statement");
+    // render(<Redirect to={page} />)
+    window.location.href = page
   }
-
 
   return (
     <div
@@ -55,6 +62,7 @@ function Landing() {
         </p>
         <p className="">Now are you ready to start your adventure?</p>
         <NextButton text="Next" click={test} />
+        <button onClick={() => changePage("/chooseclass")}>SpellSlots</button>
       </div>
     </div>
   );

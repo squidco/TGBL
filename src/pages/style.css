@@ -71,10 +71,12 @@
 .fade-out {
   animation-duration: 1s;
   animation-name: fadeOut;
+  animation-fill-mode: forwards;
 }
 .fade-in {
   animation-duration: 1s;
   animation-name: fadeIn;
+  animation-fill-mode: forwards;
 }
 
 .hidden {

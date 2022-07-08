@@ -10,7 +10,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import ChooseClass from "./pages/ChooseClass";
-import Spellbook from "./pages/Spellbook";
+import Spellbook from "./pages/SpellBook";
+import SpellSlots from "./pages/SpellSlots"
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Landing />
+        </Route>
+        <Route exact path="/spellslots">
+          <SpellSlots />
         </Route>
         <Route exact path="/chooseclass">
           <ChooseClass />
