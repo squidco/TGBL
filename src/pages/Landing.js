@@ -31,12 +31,16 @@ function Landing() {
     >
       <div className="item-a">
         <p className="title">Welcome to The Good Boy List.</p>
-        <p className="words">
+        <p className="title">
+          This app is undergoing development.
+        </p>
+        <p className="words">The goal now is to just track spell slots first and then expand to tracking your own spells. To avoid lawsuits you will only be able to track them locally on your pc. So you will have to put in the spells yourself unfortunatly.</p>
+        {/* <p className="words">
           If you feel lost, fret not. This realm assists spellcasters with their
           more mundane duties so they focus on sliging spells and being
           sticklers for rules.
-        </p>
-        <p className="words">
+        </p> */}
+        {/* <p className="words">
           This tool is fairly simple to use. It is compatible with the base
           magic users in Dungeons & Dragons. Unfortunatly this realm has not yet
           been attuned to connecting with those who wish to bend the winds of
@@ -45,8 +49,8 @@ function Landing() {
         <p className="words">
           All that means is theres no way for YOU to add custom lists. However,
           I am working on that.
-        </p>
-        <p className="">Now are you ready to start your adventure?</p>
+        </p> */}
+        {/* <p className="">Now are you ready to start your adventure?</p> */}
         <NextButton text="Next" click={changePage} />
         <button onClick={() => changePage("/chooseclass")}>SpellSlots</button>
       </div>
