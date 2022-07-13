@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { useState } from "react";
+import SpellSlotInputs from "../components/SpellSlotInputs";
 import "./style.css";
 
 function SpellSlots() {
@@ -13,7 +14,7 @@ function SpellSlots() {
   const [player, setPlayer] = useState({
     playerName: "Fortnite Default Skin",
     playerLevel: 1,
-    highestSlot: 1,
+    highestSlot: null,
   });
 
   //This function may be used in many places so I may make it a util function
@@ -46,28 +47,30 @@ function SpellSlots() {
     event.preventDefault();
     console.log("submitted");
     console.log(player);
-    generateSlotIds(player.highestSlot);
+    // generateSlotIds(player.highestSlot);
     localStorage.setItem(player.playerName, JSON.stringify(player));
   }
 
-  function generateSlotIds(highestSlot) {
-    const slotArray = [];
-    for (var i = 0; i < highestSlot; i++) {
-      var number = `lv${highestSlot - i}`;
-      slotArray.push(number);
-    }
-    generateSlotInputs(slotArray);
-  }
+  // function generateSlotIds(highestSlot) {
+  //   const slotArray = [];
+  //   for (var i = 0; i < highestSlot; i++) {
+  //     var number = `lv${highestSlot - i}`;
+  //     slotArray.push(number);
+  //   }
+  //   generateSlotInputs(slotArray);
+  // }
 
-  function generateSlotInputs(slotArray) {
-    const slotInputs = slotArray.map((level) => (
-      <input id={level} name={level} key={level} type="number"></input>
-    ));
-    console.log(slotInputs)
-    return (slotArray.map((level) => (
-      <input id={level} name={level} key={level} type="number"></input>
-    )));
-  }
+  // function generateSlotInputs(slotArray) {
+    // const slotInputs = slotArray.map((level) => (
+    //   <input id={level} name={level} key={level} type="number"></input>
+    // ));
+  //   console.log(slotInputs);
+  //   render(
+  //     slotArray.map((level) => (
+  //       <input id={level} name={level} key={level} type="number"></input>
+  //     ))
+  //   );
+  // }
 
   return (
     <div
@@ -102,6 +105,7 @@ function SpellSlots() {
             name="highestSlot"
           ></input>
           <button onClick={handleFormSubmit}>Submit</button>
+          <SpellSlotInputs highestSlot={player.highestSlot}></SpellSlotInputs>
         </form>
       </div>
     </div>
