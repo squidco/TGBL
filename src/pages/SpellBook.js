@@ -33,7 +33,7 @@ function Spellbook() {
 
   switch (playerClass) {
     case ("eldritchknight", "ranger", "arcanetrickster"):
-      var testList = ["molest", "touch small kid"];
+      var testList = ["test1", "test2"];
       console.log("half-caster");
       return <HalfCaster caster={playerClass} />;
     default:
