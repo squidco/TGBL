@@ -6,8 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect,
 } from "react-router-dom";
 import ChooseClass from "./pages/ChooseClass";
 import Spellbook from "./pages/SpellBook";

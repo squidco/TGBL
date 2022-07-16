@@ -18,7 +18,7 @@ function fadeOut(event) {
     setInterval(() => {
       container.classList.add("hidden");
       var url = window.location.origin + "/" + page;
-      return <Redirect to="/chooseclass"></Redirect>;
+      return <Redirect to={url}></Redirect>;
     }, 2000);
   }
 }
