@@ -15,7 +15,7 @@ function SpellSlotInputs(props) {
     //Reversing the array because it comes out in order
     slotArray = slotArray.reverse()
     slotInputs = slotArray.map((level) => (
-      <input id={level} name={level} key={level} type="number" placeholder={level + " spell slots"}></input>
+      <input onChange={props.handleInput} id={level} name={level} key={level} type="number" placeholder={level + " spell slots"}></input>
     ));
   } 
 

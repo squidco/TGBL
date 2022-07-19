@@ -33,13 +33,9 @@ function SpellSlots() {
   //handles the changes for forum input
   function handleFormInput(event) {
     event.preventDefault();
+    console.log(player)
     const { name, value } = event.target;
     setPlayer({ ...player, [name]: value });
-  }
-
-  function showSpellSlotInputs() {
-    console.log("slotChange");
-    render(<input placeholder="peepeepoopoo"></input>);
   }
 
   // Handles the form submit and adds entries to local storage
@@ -50,27 +46,6 @@ function SpellSlots() {
     // generateSlotIds(player.highestSlot);
     localStorage.setItem(player.playerName, JSON.stringify(player));
   }
-
-  // function generateSlotIds(highestSlot) {
-  //   const slotArray = [];
-  //   for (var i = 0; i < highestSlot; i++) {
-  //     var number = `lv${highestSlot - i}`;
-  //     slotArray.push(number);
-  //   }
-  //   generateSlotInputs(slotArray);
-  // }
-
-  // function generateSlotInputs(slotArray) {
-    // const slotInputs = slotArray.map((level) => (
-    //   <input id={level} name={level} key={level} type="number"></input>
-    // ));
-  //   console.log(slotInputs);
-  //   render(
-  //     slotArray.map((level) => (
-  //       <input id={level} name={level} key={level} type="number"></input>
-  //     ))
-  //   );
-  // }
 
   return (
     <div
@@ -105,7 +80,7 @@ function SpellSlots() {
             name="highestSlot"
           ></input>
           <button onClick={handleFormSubmit}>Submit</button>
-          <SpellSlotInputs highestSlot={player.highestSlot}></SpellSlotInputs>
+          <SpellSlotInputs handleInput={handleFormInput} highestSlot={player.highestSlot}></SpellSlotInputs>
         </form>
       </div>
     </div>
