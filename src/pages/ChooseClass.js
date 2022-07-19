@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { fadeOutWithParams, fadeIn } from "../utils/css/animations";
 import PlayerLevelList from "../components/PlayerLevelList/index";
 import PlayerClassList from "../components/PlayerClassList";
 import { Redirect } from "react-router-dom";
 import NextButton from "../components/NextButton";
+import BasicSelect from "../components/BasicSelect";
 
 function ChooseClass() {
   const [transition, setTransitionState] = useState({
@@ -68,8 +68,8 @@ function ChooseClass() {
       id="spellbook-container"
     >
       <form className="item-b">
-        <PlayerClassList handleFormInput={handleFormInput} />
-        <PlayerLevelList handleFormInput={handleFormInput} listLength={20} />
+        <BasicSelect list={20} label={"Testing this component"} id={"tester"} name={"tester"} handleFormInput={handleFormInput}></BasicSelect>
+        <BasicSelect list={["Druid", "Bard", "Herman"]} label={"Testing this component"} id={"tester"} name={"tester"} handleFormInput={handleFormInput}></BasicSelect>
         <NextButton text="Next" click={handleFormSubmit} />
       </form>
     </div>
