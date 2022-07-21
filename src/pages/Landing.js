@@ -1,7 +1,4 @@
-import { render } from "@testing-library/react";
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import NextButton from "../components/NextButton";
 import "./style.css";
 
 function Landing() {
