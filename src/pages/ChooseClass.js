@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import PlayerLevelList from "../components/PlayerLevelList/index";
-import PlayerClassList from "../components/PlayerClassList";
 import { Redirect } from "react-router-dom";
 import NextButton from "../components/NextButton";
 import BasicSelect from "../components/BasicSelect";

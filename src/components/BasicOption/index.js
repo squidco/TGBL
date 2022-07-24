@@ -1,5 +1,4 @@
 import React from "react";
-// import "./style.css";
 
 function BasicOption(props) {
     if (typeof props.optionValue === "string") {
