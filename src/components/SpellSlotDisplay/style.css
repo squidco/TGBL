@@ -1,0 +1,5 @@
+.slotDisplayContainer{
+    min-height: 13px;
+    border: 3px black solid;
+    display: flex;
+}

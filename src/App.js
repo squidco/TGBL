@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "./components/Nav/index";
 import "./App.css";
 import Landing from "./pages/Landing.js";

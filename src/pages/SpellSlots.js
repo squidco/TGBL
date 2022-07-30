@@ -49,7 +49,7 @@ function SpellSlots() {
     // Start of updating a currently existing index
     // First see if an indexes id in the array matches with the id of the targeted element
     var index = tempState.findIndex(item => item.id === id)
-    if (index != -1) {
+    if (index !== -1) {
       //updates currently existing index
       console.log(tempState[index])
       tempState[index] = {
