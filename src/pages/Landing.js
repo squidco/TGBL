@@ -22,14 +22,8 @@ function Landing() {
 
   return (
     <div
-      className={
-        transition.start === true
-          ? "landing-page-grid fade-out"
-          : "landing-page-grid"
-      }
-      id="landing-page-container"
-    >
-      <div className="item-a">
+      className={`container ${transition.start === true ? "fade-out" : null}`} id="landing-page-container">
+      <div className="">
         <p className="title">Welcome to The Good Boy List.</p>
         <p className="title">This app is undergoing development.</p>
         <p className="words">

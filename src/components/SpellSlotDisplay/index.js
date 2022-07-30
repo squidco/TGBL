@@ -8,7 +8,7 @@ function SpellSlotDisplay(props) {
 
     return (
         props.player.numberOfSlots.map((slotObject) => (
-            <div className="slotDisplayContainer" key={slotObject.id}> <SpellSlotTracker slotObject={slotObject} /></div>
+            <div className={`slotDisplayContainer order-${slotObject.id.slice(-1)}`} key={slotObject.id}> <SpellSlotTracker slotObject={slotObject} /></div>
         ))
     )
 }
