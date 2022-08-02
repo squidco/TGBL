@@ -3,12 +3,18 @@ import SpellSlotTracker from "../SpellSlotTracker";
 import "./style.css"
 
 function SpellSlotDisplay(props) {
-    
-
-
+    // slotObject = {
+    // id = 'lv{number of level}'
+    // numberOfSlots = number
+    //}
     return (
         props.player.numberOfSlots.map((slotObject) => (
-            <div className={`slotDisplayContainer order-${slotObject.id.slice(-1)}`} key={slotObject.id}> <SpellSlotTracker slotObject={slotObject} /></div>
+            <div className={"container"} key={slotObject.id}>
+                <label className="m-0 words">{`Level ${slotObject.id.slice(-1)} Slots`}</label>
+                <div className={`slotDisplayContainer`}>
+                    <SpellSlotTracker slotObject={slotObject} />
+                </div>
+            </div>
         ))
     )
 }

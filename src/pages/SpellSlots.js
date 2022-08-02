@@ -78,6 +78,9 @@ function SpellSlots() {
   return (
     <div className={`mt-3 container ${transition.start === true ? "fade-out" : null}`}>
       <div className="row">
+        <h1 className="title">Enter your character's details.</h1>
+      </div>
+      <div className="row">
         <form className="col-md-6">
           <input
             type="text"
@@ -85,6 +88,7 @@ function SpellSlots() {
             onChange={handleFormInput}
             id="playerName"
             name="playerName"
+            className="m-1"
           ></input>
           <input
             type="number"
@@ -92,6 +96,7 @@ function SpellSlots() {
             onChange={handleFormInput}
             id="playerLevel"
             name="playerLevel"
+            className="m-1"
           ></input>
           <input
             type="number"
@@ -99,6 +104,7 @@ function SpellSlots() {
             onChange={handleFormInput}
             id="highestSlot"
             name="highestSlot"
+            className="m-1"
           ></input>
           <button onClick={handleFormSubmit}>Submit</button>
           <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
