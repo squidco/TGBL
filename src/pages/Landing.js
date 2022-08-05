@@ -30,7 +30,7 @@ function Landing() {
           The goal now is to just track spell slots first and then expand to
           tracking your own spells. To avoid lawsuits you will only be able to
           track them locally on your pc. So you will have to put in the spells
-          yourself unfortunatly.
+          yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
         </p>
         {/* <p className="words">
           If you feel lost, fret not. This realm assists spellcasters with their
