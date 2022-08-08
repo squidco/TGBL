@@ -22,21 +22,15 @@ function Landing() {
 
   return (
     <div
-      className={
-        transition.start === true
-          ? "landing-page-grid fade-out"
-          : "landing-page-grid"
-      }
-      id="landing-page-container"
-    >
-      <div className="item-a">
+      className={`container ${transition.start === true ? "fade-out" : null}`} id="landing-page-container">
+      <div className="">
         <p className="title">Welcome to The Good Boy List.</p>
         <p className="title">This app is undergoing development.</p>
         <p className="words">
           The goal now is to just track spell slots first and then expand to
           tracking your own spells. To avoid lawsuits you will only be able to
           track them locally on your pc. So you will have to put in the spells
-          yourself unfortunatly.
+          yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
         </p>
         {/* <p className="words">
           If you feel lost, fret not. This realm assists spellcasters with their

@@ -76,22 +76,19 @@ function SpellSlots() {
   }
 
   return (
-    <div
-      className={
-        transition.start === true
-          ? "landing-page-grid fade-out"
-          : "landing-page-grid"
-      }
-      id="landing-page-container"
-    >
-      <div className="item-a">
-        <form>
+    <div className={`mt-3 container ${transition.start === true ? "fade-out" : null}`}>
+      <div className="row">
+        <h1 className="title">Enter your character's details.</h1>
+      </div>
+      <div className="row">
+        <form className="col-md-6">
           <input
             type="text"
             placeholder="Enter your name"
             onChange={handleFormInput}
             id="playerName"
             name="playerName"
+            className="m-1"
           ></input>
           <input
             type="number"
@@ -99,6 +96,7 @@ function SpellSlots() {
             onChange={handleFormInput}
             id="playerLevel"
             name="playerLevel"
+            className="m-1"
           ></input>
           <input
             type="number"
@@ -106,12 +104,14 @@ function SpellSlots() {
             onChange={handleFormInput}
             id="highestSlot"
             name="highestSlot"
+            className="m-1"
           ></input>
           <button onClick={handleFormSubmit}>Submit</button>
-          <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot}></SpellSlotInputs>
-          <button onClick={() => { changePage("playerdisplay") }}>Next</button>
+          <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
         </form>
-        <SpellSlotDisplay player={player}></SpellSlotDisplay>
+        <div className="col-md-6">
+          <SpellSlotDisplay player={player} />
+        </div>
       </div>
     </div>
   );

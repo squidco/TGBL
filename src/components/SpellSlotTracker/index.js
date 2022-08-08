@@ -10,7 +10,7 @@ function SpellSlotTracker(props) {
     return (
         <>
             {tempElArr.map((item) => (
-                <SpellSlotSquare idAndKey={item}/>
+                <SpellSlotSquare idAndKey={item} />
             ))}
         </>
     )
