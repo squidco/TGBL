@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route exact path="/spellslots">
+        <Route  path="/spellslots">
           <SpellSlots />
         </Route>
         <Route exact path="/chooseclass">
