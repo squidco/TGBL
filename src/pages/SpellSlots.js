@@ -76,7 +76,7 @@ function SpellSlots() {
   }
 
   return (
-    <div className={`mt-3 container ${transition.start === true ? "fade-out" : null}`}>
+    <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       <div className="row">
         <h1 className="title">Enter your character's details.</h1>
       </div>

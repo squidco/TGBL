@@ -22,22 +22,21 @@ function Landing() {
 
   return (
     <div
-      className={`container ${transition.start === true ? "fade-out" : null}`} id="landing-page-container">
-      <div className="">
-        <p className="title">Welcome to The Good Boy List.</p>
-        <p className="title">This app is undergoing development.</p>
-        <p className="words">
-          The goal now is to just track spell slots first and then expand to
-          tracking your own spells. To avoid lawsuits you will only be able to
-          track them locally on your pc. So you will have to put in the spells
-          yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
-        </p>
-        {/* <p className="words">
+      className={`container op-1 ${transition.start === true ? "op-0" : null}`} id="landing-page-container">
+      <p className="title">Welcome to The Good Boy List.</p>
+      <p className="title">This app is undergoing development.</p>
+      <p className="words">
+        The goal now is to just track spell slots first and then expand to
+        tracking your own spells. To avoid lawsuits you will only be able to
+        track them locally on your pc. So you will have to put in the spells
+        yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
+      </p>
+      {/* <p className="words">
           If you feel lost, fret not. This realm assists spellcasters with their
           more mundane duties so they focus on sliging spells and being
           sticklers for rules.
         </p> */}
-        {/* <p className="words">
+      {/* <p className="words">
           This tool is fairly simple to use. It is compatible with the base
           magic users in Dungeons & Dragons. Unfortunatly this realm has not yet
           been attuned to connecting with those who wish to bend the winds of
@@ -47,10 +46,9 @@ function Landing() {
           All that means is theres no way for YOU to add custom lists. However,
           I am working on that.
         </p> */}
-        {/* <p className="">Now are you ready to start your adventure?</p> */}
-        {/* <NextButton text="Next" click={changePage} /> */}
-        <button onClick={() => changePage("/spellslots")}>SpellSlots</button>
-      </div>
+      {/* <p className="">Now are you ready to start your adventure?</p> */}
+      {/* <NextButton text="Next" click={changePage} /> */}
+      <button onClick={() => changePage("/spellslots")}>SpellSlots</button>
     </div>
   );
 

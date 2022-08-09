@@ -10,9 +10,7 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/ping", function (req, res) {
-  return res.send("pong");
-});
+//Mongoose error kills app when run with server. I think it just cant establish a connection.
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/spellBooks", {
 //   useNewUrlParser: true,
