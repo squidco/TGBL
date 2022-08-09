@@ -9,6 +9,7 @@ function Landing() {
   
   // Use effect to reset state
   useEffect(() => {
+    console.log("useEffect")
     setTransitionState({
       start: false
     })
