@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 function Landing() {
@@ -6,6 +6,13 @@ function Landing() {
   const [transition, setTransitionState] = useState({
     start: false,
   });
+  
+  // Use effect to reset state
+  useEffect(() => {
+    setTransitionState({
+      start: false
+    })
+  }, [])
 
   //This function may be used in many places so I may make it a util function
   //Triggers the animation for this page and changes the url afterwords to the new page
