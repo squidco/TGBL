@@ -10,6 +10,9 @@ function SpellSlots() {
     slotStart: false,
   });
 
+  //State for getting search input
+  const [search, setSearch] = useState("")
+
   //State for tracking the amount of player spell slots and level
   const [player, setPlayer] = useState({
     playerName: "Fortnite Default Skin",
@@ -38,6 +41,22 @@ function SpellSlots() {
     event.preventDefault();
     const { name, value } = event.target;
     setPlayer({ ...player, [name]: value });
+  }
+
+  function handleSearchInput(event) {
+    event.preventDefault();
+    const { value } = event.target
+    setSearch(value)
+  }
+
+  function handleSearchSubmit(event) {
+    event.preventDefault()
+    let playerSearch = search
+    if (localStorage.getItem(playerSearch)) {
+      setPlayer(JSON.parse(localStorage.getItem(playerSearch)))
+    } else {
+      console.log(`Cannot find a player with a name of ${playerSearch}`)
+    }
   }
 
   function pushToNOSArr(event) {
@@ -78,7 +97,25 @@ function SpellSlots() {
   return (
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       <div className="row">
-        <h1 className="title">Enter your character's details.</h1>
+        <div className="col-md-12">
+
+          <h1 className="title">Enter your character's details.</h1>
+          <br />
+          <h1 className="title">or</h1>
+          <br />
+          <h1 className="title">Search for your character's name.</h1>
+        </div>
+      </div>
+      <div className="row">
+        <form>
+          <input type="text"
+            placeholder="Search for your name"
+            onChange={handleSearchInput}
+            id="search"
+            name="search"
+          ></input>
+          <button type="submit" onClick={handleSearchSubmit}>Submit</button>
+        </form>
       </div>
       <div className="row">
         <form className="col-md-6">

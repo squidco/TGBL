@@ -10,6 +10,7 @@ import {
 import ChooseClass from "./pages/ChooseClass";
 import Spellbook from "./pages/SpellBook";
 import SpellSlots from "./pages/SpellSlots"
+import PlayerDisplay from "./pages/PlayerDisplay";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
         <Route  path="/spellslots">
           <SpellSlots />
         </Route>
-        <Route exact path="/chooseclass">
-          <ChooseClass />
+        <Route exact path="/playerdisplay">
+          <PlayerDisplay />
         </Route>
         <Route exact path="/spellbook">
           <Spellbook />
