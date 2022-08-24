@@ -8,4 +8,4 @@ The good boy list (TGBL) is a list site where you can manage lists for games tha
 [SquidDOTjpeg](https://github.com/SquidDOTjpeg)
 
 ## Links
-Deployed coming soon
+[Site](https://thegoodboylist.herokuapp.com/)
