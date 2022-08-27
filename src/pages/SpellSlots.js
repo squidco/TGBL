@@ -49,13 +49,13 @@ function SpellSlots() {
     setSearch(value)
   }
 
+  //Specific function to handle the search bar for characters
   function handleSearchSubmit(event) {
     event.preventDefault()
-    let playerSearch = search
-    if (localStorage.getItem(playerSearch)) {
-      setPlayer(JSON.parse(localStorage.getItem(playerSearch)))
+    if (localStorage.getItem(search)) {
+      setPlayer(JSON.parse(localStorage.getItem(search)))
     } else {
-      console.log(`Cannot find a player with a name of ${playerSearch}`)
+      console.log(`Cannot find a player with a name of ${search}`)
     }
   }
 
@@ -98,12 +98,11 @@ function SpellSlots() {
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       <div className="row">
         <div className="col-md-12">
-
-          <h1 className="title">Enter your character's details.</h1>
-          <br />
-          <h1 className="title">or</h1>
-          <br />
-          <h1 className="title">Search for your character's name.</h1>
+          <h1 className="title">Enter your character's details.
+            <br />
+            or
+            <br />
+            Search for your character's name.</h1>
         </div>
       </div>
       <div className="row">
@@ -114,7 +113,7 @@ function SpellSlots() {
             id="search"
             name="search"
           ></input>
-          <button type="submit" onClick={handleSearchSubmit}>Submit</button>
+          <button type="submit" onClick={handleSearchSubmit}>Search</button>
         </form>
       </div>
       <div className="row">
@@ -143,7 +142,7 @@ function SpellSlots() {
             name="highestSlot"
             className="m-1"
           ></input>
-          <button onClick={handleFormSubmit}>Submit</button>
+          <button onClick={handleFormSubmit}>Save</button>
           <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
         </form>
         <div className="col-md-6">
@@ -152,8 +151,6 @@ function SpellSlots() {
       </div>
     </div>
   );
-  //Additional notes: I may need to change how I store spell slot information. I'm not sure that I can effectively
-  // work with how I have it stored now.
 }
 
 export default SpellSlots;
