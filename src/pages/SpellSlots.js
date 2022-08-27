@@ -21,8 +21,6 @@ function SpellSlots() {
     numberOfSlots: []
   });
 
-
-
   //This function may be used in many places so I may make it a util function
   //Triggers the animation for this page and changes the url afterwords to the new page
   function changePage(page) {
@@ -43,13 +41,14 @@ function SpellSlots() {
     setPlayer({ ...player, [name]: value });
   }
 
+  //Handles the input into the search bar
   function handleSearchInput(event) {
     event.preventDefault();
     const { value } = event.target
     setSearch(value)
   }
 
-  //Specific function to handle the search bar for characters
+  //Specific function to handle the search bar submit for characters
   function handleSearchSubmit(event) {
     event.preventDefault()
     if (localStorage.getItem(search)) {
@@ -59,6 +58,7 @@ function SpellSlots() {
     }
   }
 
+  //Pushes to the Number of Slots array. Needed special logic too handle more complex state
   function pushToNOSArr(event) {
     event.preventDefault()
     var tempState
@@ -70,7 +70,6 @@ function SpellSlots() {
     var index = tempState.findIndex(item => item.id === id)
     if (index !== -1) {
       //updates currently existing index
-      console.log(tempState[index])
       tempState[index] = {
         ...tempState[index], [name]: value
       }
@@ -106,45 +105,47 @@ function SpellSlots() {
         </div>
       </div>
       <div className="row">
-        <form>
-          <input type="text"
-            placeholder="Search for your name"
-            onChange={handleSearchInput}
-            id="search"
-            name="search"
-          ></input>
-          <button type="submit" onClick={handleSearchSubmit}>Search</button>
-        </form>
-      </div>
-      <div className="row">
-        <form className="col-md-6">
-          <input
-            type="text"
-            placeholder="Enter your name"
-            onChange={handleFormInput}
-            id="playerName"
-            name="playerName"
-            className="m-1"
-          ></input>
-          <input
-            type="number"
-            placeholder="Player level?"
-            onChange={handleFormInput}
-            id="playerLevel"
-            name="playerLevel"
-            className="m-1"
-          ></input>
-          <input
-            type="number"
-            placeholder="Highest level spellslot?"
-            onChange={handleFormInput}
-            id="highestSlot"
-            name="highestSlot"
-            className="m-1"
-          ></input>
-          <button onClick={handleFormSubmit}>Save</button>
-          <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
-        </form>
+        <div className="col-md-6">
+          <form>
+            <input type="text"
+              placeholder="Search for your name"
+              onChange={handleSearchInput}
+              id="search"
+              name="search"
+              className="m-1"
+            ></input>
+            <button type="submit" onClick={handleSearchSubmit}>Search</button>
+          </form>
+          <br/>
+          <form>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              onChange={handleFormInput}
+              id="playerName"
+              name="playerName"
+              className="m-1"
+            ></input>
+            <input
+              type="number"
+              placeholder="Player level?"
+              onChange={handleFormInput}
+              id="playerLevel"
+              name="playerLevel"
+              className="m-1"
+            ></input>
+            <input
+              type="number"
+              placeholder="Highest level spellslot?"
+              onChange={handleFormInput}
+              id="highestSlot"
+              name="highestSlot"
+              className="m-1"
+            ></input>
+            <button onClick={handleFormSubmit}>Save</button>
+            <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
+          </form>
+        </div>
         <div className="col-md-6">
           <SpellSlotDisplay player={player} />
         </div>
