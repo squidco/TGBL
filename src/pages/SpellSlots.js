@@ -15,8 +15,8 @@ function SpellSlots() {
 
   //State for tracking the amount of player spell slots and level
   const [player, setPlayer] = useState({
-    playerName: "Fortnite Default Skin",
-    playerLevel: 1,
+    playerName: "",
+    playerLevel: null,
     highestSlot: null,
     numberOfSlots: []
   });
@@ -33,21 +33,14 @@ function SpellSlots() {
       }, 1000);
     }
   }
-
-  //handles the changes for forum input
-  function handleFormInput(event) {
-    event.preventDefault();
-    const { name, value } = event.target;
-    setPlayer({ ...player, [name]: value });
-  }
-
+  
   //Handles the input into the search bar
   function handleSearchInput(event) {
     event.preventDefault();
     const { value } = event.target
     setSearch(value)
   }
-
+  
   //Specific function to handle the search bar submit for characters
   function handleSearchSubmit(event) {
     event.preventDefault()
@@ -56,6 +49,13 @@ function SpellSlots() {
     } else {
       console.log(`Cannot find a player with a name of ${search}`)
     }
+  }
+
+  //handles the changes for forum input
+  function handleFormInput(event) {
+    event.preventDefault();
+    const { name, value } = event.target;
+    setPlayer({ ...player, [name]: value });
   }
 
   //Pushes to the Number of Slots array. Needed special logic too handle more complex state
