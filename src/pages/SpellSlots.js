@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SpellSlotInputs from "../components/SpellSlotInputs";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
+import PopUp from "../components/PopUp";
 import "./style.css";
 
 function SpellSlots() {
@@ -90,6 +91,10 @@ function SpellSlots() {
   // Handles the form submit and adds entries to local storage
   function handleFormSubmit(event) {
     event.preventDefault();
+    if(player.playerName === "") {
+      console.log("Name validation failed")
+      return <PopUp color="danger" message="Please enter a name for your character" />
+    }
     localStorage.setItem(player.playerName, JSON.stringify(player));
   }
 
