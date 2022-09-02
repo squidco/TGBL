@@ -39,14 +39,14 @@ function SpellSlots() {
       }, 1000);
     }
   }
-  
+
   //Handles the input into the search bar
   function handleSearchInput(event) {
     event.preventDefault();
     const { value } = event.target
     setSearch(value)
   }
-  
+
   //Specific function to handle the search bar submit for characters
   function handleSearchSubmit(event) {
     event.preventDefault()
@@ -94,11 +94,20 @@ function SpellSlots() {
   }
 
   // Handles the form submit and adds entries to local storage
+  // Also handles the front end validation for the player creation form
   function handleFormSubmit(event) {
     event.preventDefault();
-    if(player.playerName === "") {
-      console.log("Name validation failed")
-      setValErr({open: true, message: "Please enter a name."})
+    if (player.playerName === "") {
+      setValErr({ open: true, message: "Please enter a name." })
+      return
+    } else if (player.playerLevel === null || player.playerLevel == 0) {
+      setValErr({ open: true, message: "Please enter your player level." })
+      return
+    } else if (player.highestSlot === null || player.highestSlot == 0) {
+      setValErr({ open: true, message: "Please enter the value of your highest level spell slot." })
+      return
+    } else {
+      setValErr({ open: false, message: "" })
     }
     localStorage.setItem(player.playerName, JSON.stringify(player));
   }
@@ -126,7 +135,7 @@ function SpellSlots() {
             ></input>
             <button type="submit" onClick={handleSearchSubmit}>Search</button>
           </form>
-          <br/>
+          <br />
           <form>
             <input
               type="text"
