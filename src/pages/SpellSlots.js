@@ -6,6 +6,11 @@ import "./style.css";
 
 function SpellSlots() {
   //State for the css animation that is triggered in the changePage function
+  const [valErr, setValErr] = useState({
+    open: false,
+    message: ""
+  })
+
   const [transition, setTransitionState] = useState({
     start: false,
     slotStart: false,
@@ -93,7 +98,7 @@ function SpellSlots() {
     event.preventDefault();
     if(player.playerName === "") {
       console.log("Name validation failed")
-      return <PopUp color="danger" message="Please enter a name for your character" />
+      setValErr({open: true, message: "Please enter a name."})
     }
     localStorage.setItem(player.playerName, JSON.stringify(player));
   }
@@ -148,6 +153,7 @@ function SpellSlots() {
               className="m-1"
             ></input>
             <button onClick={handleFormSubmit}>Save</button>
+            {valErr.open && <PopUp color="danger" message={valErr.message} />}
             <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
           </form>
         </div>
