@@ -166,9 +166,9 @@ function SpellSlots() {
             <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
           </form>
         </div>
-        <div className="col-md-6">
+        <aside className="col-md-6">
           <SpellSlotDisplay player={player} />
-        </div>
+        </aside>
       </section>
     </div>
   );

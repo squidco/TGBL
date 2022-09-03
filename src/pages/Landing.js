@@ -23,8 +23,9 @@ function Landing() {
   }
 
   return (
-    <div className={`container op-1 ${transition === true ? "op-0" : null}`} id="landing-page-container">
+    <section className={`container op-1 ${transition === true ? "op-0" : null}`} id="landing-page-container">
       <p className="title">Welcome to The Good Boy List.</p>
+      <br />
       <p className="title">This app is undergoing development.</p>
       <p className="words">
         The goal now is to just track spell slots first and then expand to
@@ -32,8 +33,9 @@ function Landing() {
         track them locally on your pc. So you will have to put in the spells
         yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
       </p>
+      <br />
       <button onClick={() => changePage("/spellslots")}>SpellSlots</button>
-    </div>
+    </section>
   );
 
   //Additional notes: I may want to make the button that I click to change pages a component
