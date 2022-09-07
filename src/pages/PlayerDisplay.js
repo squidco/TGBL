@@ -1,12 +1,10 @@
-import { render } from "@testing-library/react";
 import React, { useDebugValue, useEffect, useState } from "react";
-import SpellSlotInputs from "../components/SpellSlotInputs";
 import "./style.css";
 
 function PlayerDisplay() {
-    useEffect(() => {
-        setPlayer(localStorage.getItem())
-    })
+  useEffect(() => {
+    setPlayer(localStorage.getItem())
+  })
   //State for the css animation that is triggered in the changePage function
   const [transition, setTransitionState] = useState({
     start: false,
