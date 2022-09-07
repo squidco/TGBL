@@ -114,7 +114,7 @@ function SpellSlots() {
 
   return (
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
-      <div className="row">
+      <section className="row">
         <div className="col-md-12">
           <h1 className="title">Enter your character's details.
             <br />
@@ -122,8 +122,8 @@ function SpellSlots() {
             <br />
             Search for your character's name.</h1>
         </div>
-      </div>
-      <div className="row">
+      </section>
+      <section className="row">
         <div className="col-md-6">
           <form>
             <input type="text"
@@ -166,10 +166,10 @@ function SpellSlots() {
             <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
           </form>
         </div>
-        <div className="col-md-6">
+        <aside className="col-md-6">
           <SpellSlotDisplay player={player} />
-        </div>
-      </div>
+        </aside>
+      </section>
     </div>
   );
 }
