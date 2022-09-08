@@ -1,10 +1,15 @@
 import React, { useDebugValue, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "./style.css";
 
 function PlayerDisplay() {
+let { playername } = useParams()
+
   useEffect(() => {
-    setPlayer(localStorage.getItem())
-  })
+    setPlayer(JSON.parse(localStorage.getItem(playername)))
+    console.log(JSON.parse(localStorage.getItem(playername)))
+  }, [])
   //State for the css animation that is triggered in the changePage function
   const [transition, setTransitionState] = useState({
     start: false,
@@ -15,7 +20,8 @@ function PlayerDisplay() {
   const [player, setPlayer] = useState({
     playerName: "Fortnite Default Skin",
     playerLevel: 1,
-    highestSlot: null,
+    highestSlot: 9,
+    numberOfSlots: []
   });
 
   //This function may be used in many places so I may make it a util function
@@ -49,21 +55,12 @@ function PlayerDisplay() {
   }
 
   return (
-    <div
-      className={
-        transition.start === true
-          ? "landing-page-grid fade-out"
-          : "landing-page-grid"
-      }
-      id="landing-page-container"
-    >
+    <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       <div className="item-a">
-        <spellSlotElement></spellSlotElement>
+        <SpellSlotDisplay player={player}/>
       </div>
     </div>
   );
-  //Additional notes: The idea here is to reveal an input as they fill out inputs up to nine.
-  //Probably going to be janky though so I might switch the approach
 }
 
 export default PlayerDisplay;
