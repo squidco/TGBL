@@ -6,9 +6,9 @@ import "./style.css";
 function PlayerDisplay() {
 let { playername } = useParams()
 
+//Sets the player state to the playername variable which is sent over in url params
   useEffect(() => {
     setPlayer(JSON.parse(localStorage.getItem(playername)))
-    console.log(JSON.parse(localStorage.getItem(playername)))
   }, [])
   //State for the css animation that is triggered in the changePage function
   const [transition, setTransitionState] = useState({
@@ -18,24 +18,11 @@ let { playername } = useParams()
 
   //State for tracking the amount of player spell slots and level
   const [player, setPlayer] = useState({
-    playerName: "Fortnite Default Skin",
+    playerName: "",
     playerLevel: 1,
-    highestSlot: 9,
+    highestSlot: 0,
     numberOfSlots: []
   });
-
-  //This function may be used in many places so I may make it a util function
-  //Triggers the animation for this page and changes the url afterwords to the new page
-  function changePage(page) {
-    if (transition.start === false) {
-      setTransitionState({
-        start: true,
-      });
-      setTimeout(() => {
-        window.location.href = page;
-      }, 1000);
-    }
-  }
 
   //handles the changes for forum input
   function handleFormInput(event) {
