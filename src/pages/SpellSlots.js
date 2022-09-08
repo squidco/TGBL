@@ -27,19 +27,6 @@ function SpellSlots() {
     numberOfSlots: []
   });
 
-  //This function may be used in many places so I may make it a util function
-  //Triggers the animation for this page and changes the url afterwords to the new page
-  function changePage(page) {
-    if (transition.start === false) {
-      setTransitionState({
-        start: true,
-      });
-      setTimeout(() => {
-        window.location.href = page;
-      }, 1000);
-    }
-  }
-
   //Handles the input into the search bar
   function handleSearchInput(event) {
     event.preventDefault();
@@ -100,10 +87,10 @@ function SpellSlots() {
     if (player.playerName === "") {
       setValErr({ open: true, message: "Please enter a name." })
       return
-    } else if (player.playerLevel === null || player.playerLevel == 0) {
+    } else if (player.playerLevel === null || player.playerLevel === "0") {
       setValErr({ open: true, message: "Please enter your player level." })
       return
-    } else if (player.highestSlot === null || player.highestSlot == 0) {
+    } else if (player.highestSlot === null || player.highestSlot === "0") {
       setValErr({ open: true, message: "Please enter the value of your highest level spell slot." })
       return
     } else {

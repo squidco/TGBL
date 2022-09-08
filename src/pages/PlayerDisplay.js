@@ -1,10 +1,15 @@
 import React, { useDebugValue, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "./style.css";
 
 function PlayerDisplay() {
+let { playername } = useParams()
+
+//Sets the player state to the playername variable which is sent over in url params
   useEffect(() => {
-    setPlayer(localStorage.getItem())
-  })
+    setPlayer(JSON.parse(localStorage.getItem(playername)))
+  }, [])
   //State for the css animation that is triggered in the changePage function
   const [transition, setTransitionState] = useState({
     start: false,
@@ -13,23 +18,11 @@ function PlayerDisplay() {
 
   //State for tracking the amount of player spell slots and level
   const [player, setPlayer] = useState({
-    playerName: "Fortnite Default Skin",
+    playerName: "",
     playerLevel: 1,
-    highestSlot: null,
+    highestSlot: 0,
+    numberOfSlots: []
   });
-
-  //This function may be used in many places so I may make it a util function
-  //Triggers the animation for this page and changes the url afterwords to the new page
-  function changePage(page) {
-    if (transition.start === false) {
-      setTransitionState({
-        start: true,
-      });
-      setTimeout(() => {
-        window.location.href = page;
-      }, 1000);
-    }
-  }
 
   //handles the changes for forum input
   function handleFormInput(event) {
@@ -49,21 +42,12 @@ function PlayerDisplay() {
   }
 
   return (
-    <div
-      className={
-        transition.start === true
-          ? "landing-page-grid fade-out"
-          : "landing-page-grid"
-      }
-      id="landing-page-container"
-    >
+    <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       <div className="item-a">
-        <spellSlotElement></spellSlotElement>
+        <SpellSlotDisplay player={player}/>
       </div>
     </div>
   );
-  //Additional notes: The idea here is to reveal an input as they fill out inputs up to nine.
-  //Probably going to be janky though so I might switch the approach
 }
 
 export default PlayerDisplay;

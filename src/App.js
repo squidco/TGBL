@@ -23,7 +23,7 @@ function App() {
         <Route  path="/spellslots">
           <SpellSlots />
         </Route>
-        <Route exact path="/playerdisplay">
+        <Route exact path="/playerdisplay/:playername">
           <PlayerDisplay />
         </Route>
         <Route exact path="/spellbook">
