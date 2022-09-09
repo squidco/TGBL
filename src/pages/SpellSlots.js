@@ -84,19 +84,27 @@ function SpellSlots() {
   // Also handles the front end validation for the player creation form
   function handleFormSubmit(event) {
     event.preventDefault();
+    //If player name is blank
     if (player.playerName === "") {
       setValErr({ open: true, message: "Please enter a name." })
       return
+      //If the player name is already taken
+    } else if (localStorage.getItem(player.playerName.toLowerCase())) {
+      setValErr({ open: true, message: "This player name is already taken. Please try another." })
+      return
+      //If the player level is 0 or null
     } else if (player.playerLevel === null || player.playerLevel === "0") {
       setValErr({ open: true, message: "Please enter your player level." })
       return
+      //If the player highest spell slot is 0 or null
     } else if (player.highestSlot === null || player.highestSlot === "0") {
       setValErr({ open: true, message: "Please enter the value of your highest level spell slot." })
       return
+      //If it makes it through validation it will reset the Validation Error message to blank and close the pop up
     } else {
       setValErr({ open: false, message: "" })
     }
-    localStorage.setItem(player.playerName, JSON.stringify(player));
+    localStorage.setItem(player.playerName.toLowerCase(), JSON.stringify(player));
   }
 
   return (
