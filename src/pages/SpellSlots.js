@@ -3,8 +3,10 @@ import SpellSlotInputs from "../components/SpellSlotInputs";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import PopUp from "../components/PopUp";
 import "./style.css";
+import { Link, Redirect } from "react-router-dom";
 
 function SpellSlots() {
+  const [redir, setRedir] = useState({ go: false, to: "" })
   //State for the css animation that is triggered in the changePage function
   const [valErr, setValErr] = useState({
     open: false,
@@ -37,10 +39,10 @@ function SpellSlots() {
   //Specific function to handle the search bar submit for characters
   function handleSearchSubmit(event) {
     event.preventDefault()
-    if (localStorage.getItem(search)) {
-      setPlayer(JSON.parse(localStorage.getItem(search)))
+    if (localStorage.getItem(search.toLowerCase())) {
+      setRedir({ go: true, to: search.toLowerCase() })
     } else {
-      console.log(`Cannot find a player with a name of ${search}`)
+      setValErr({ open: true, message: `Cannot find a player with a name of ${search}` })
     }
   }
 
@@ -105,10 +107,12 @@ function SpellSlots() {
       setValErr({ open: false, message: "" })
     }
     localStorage.setItem(player.playerName.toLowerCase(), JSON.stringify(player));
+    setRedir({ go: true, to: player.playerName.toLowerCase() })
   }
 
   return (
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
+      {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
       <section className="row">
         <div className="col-md-12">
           <h1 className="title">Enter your character's details.
