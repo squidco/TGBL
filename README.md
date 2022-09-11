@@ -9,9 +9,13 @@ Open the site and click the button that says "Spellslots". You will be redirecte
 
 ## Installation
 Clone the repo down to your machine and run
+
     npm i
+  
 You can then run the script
+
     npm run dev
+    
 To start the dev server
 
 ## Contributers
