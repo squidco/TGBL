@@ -21,7 +21,7 @@ function SpellSlotInputs(props) {
     ));
   }
 
-  return (<div>{slotInputs}</div>)
+  return (<div className={props.modal ? "modal-version" : null}>{slotInputs}</div>)
 }
 
 export default SpellSlotInputs;

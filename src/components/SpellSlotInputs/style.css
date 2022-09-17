@@ -1,0 +1,9 @@
+.modal-version{
+    position: absolute;
+    z-index: 1;
+    background-color: aliceblue;
+    padding: 10px;
+    box-shadow: 0px 12px 12px;
+    border: 1px black solid;
+    border-radius: 2px;
+}

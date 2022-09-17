@@ -24,9 +24,9 @@ function Landing() {
 
   return (
     <section className={`container op-1 ${transition === true ? "op-0" : null}`} id="landing-page-container">
+      <br />
       <p className="title">Welcome to The Good Boy List.</p>
       <br />
-      <p className="title">This app is undergoing development.</p>
       <p className="words">
         The goal now is to just track spell slots first and then expand to
         tracking your own spells. To avoid lawsuits you will only be able to
