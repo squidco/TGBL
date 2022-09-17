@@ -21,7 +21,10 @@ function SpellSlotInputs(props) {
     ));
   }
 
-  return (<div className={props.modal ? "modal-version" : null}>{slotInputs}</div>)
+  return (<div className={props.modal ? "modal-version" : null}>
+    {slotInputs}
+    {props.modal && <button onClick={props.toggleModal}>Close</button>}
+  </div>)
 }
 
 export default SpellSlotInputs;

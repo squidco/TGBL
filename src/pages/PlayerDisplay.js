@@ -78,7 +78,7 @@ function PlayerDisplay() {
 
   return (
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
-      {editModal && <SpellSlotInputs modal={true} handleChange={pushToNOSArr} highestSlot={player.highestSlot} />}
+      {editModal && <SpellSlotInputs toggleModal={toggleModal} modal={true} handleChange={pushToNOSArr} highestSlot={player.highestSlot} />}
       <div className="row">
         <div className="col-md-12">
           <button onClick={toggleModal}>Edit</button>
