@@ -23,7 +23,12 @@ function SpellSlotInputs(props) {
 
   return (<div className={props.modal ? "modal-version" : null}>
     {slotInputs}
-    {props.modal && <button onClick={props.toggleModal}>Close</button>}
+    {props.modal &&
+      <div className="row">
+        <button onClick={props.toggleModal}>Close</button>
+        <button onClick={props.handleSubmit}>Save</button>
+      </div>
+    }
   </div>)
 }
 
