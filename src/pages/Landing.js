@@ -28,10 +28,8 @@ function Landing() {
       <p className="title">Welcome to The Good Boy List.</p>
       <br />
       <p className="words">
-        The goal now is to just track spell slots first and then expand to
-        tracking your own spells. To avoid lawsuits you will only be able to
-        track them locally on your pc. So you will have to put in the spells
-        yourself unfortunatly. The spell slot tracker is functional. You can see the demo for it if you press the spell slots button below. I will be working on saving your character next.
+        This site is designed to help spell casters with the more mundane parts of spellcasting. Managing your spell slots on a sheet of paper only gets messy. Erasing and filling in over and over is a pain and adding new spell slot trackers takes time that you would rather spend playing DnD. That's where TGBL comes in!
+        With TGBL we do the annoying work for you. You can create your character and enter their spell slots then let us do the rest. We will generate a spell slot tracker for you with togglable slots so if you expend a slot its merely a click of a button to change.
       </p>
       <br />
       <button onClick={() => changePage("/spellslots")}>SpellSlots</button>

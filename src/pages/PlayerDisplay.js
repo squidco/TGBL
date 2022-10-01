@@ -11,7 +11,7 @@ function PlayerDisplay() {
   //Sets the player state to the value of the param in the url. It checks local storage for this
   useEffect(() => {
     setPlayer(JSON.parse(localStorage.getItem(playername)))
-  }, [])
+  }, [playername])
 
   const [valErr, setValErr] = useState({
     open: false,
