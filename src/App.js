@@ -11,6 +11,7 @@ import ChooseClass from "./pages/ChooseClass";
 import Spellbook from "./pages/SpellBook";
 import SpellSlots from "./pages/SpellSlots"
 import PlayerDisplay from "./pages/PlayerDisplay";
+import ComponentTest from "./pages/ComponentTest";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route exact path="/spellbook">
           <Spellbook />
+        </Route>
+        <Route exact path="/componenttest">
+          <ComponentTest />
         </Route>
       </Switch>
     </>
