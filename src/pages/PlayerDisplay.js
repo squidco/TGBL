@@ -3,6 +3,7 @@ import { useParams, Redirect } from "react-router-dom";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "./style.css";
 import PlayerForm from "../components/PlayerForm";
+import Modal from "../components/Modal";
 
 function PlayerDisplay() {
   let { playername } = useParams()
@@ -35,10 +36,10 @@ function PlayerDisplay() {
   return (
     <div className={`mt-3 container op-1 ${transition.start === true ? "op-0" : null}`}>
       {editModal &&
-        <div className="modal-container">
+        <Modal>
           <button onClick={toggleModal}>Cancel</button>
           <PlayerForm />
-        </div>
+        </Modal>
       }
       <div className="row">
         <div className="col-md-12">
