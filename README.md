@@ -18,6 +18,14 @@ You can then run the script
     
 To start the dev server
 
+If you want to create a build of the app then all you have to do is run
+
+    npm run build
+    
+Then you can start the server with 
+
+    npm run start
+
 ## Contributers
 [SquidDOTjpeg](https://github.com/SquidDOTjpeg)
 
