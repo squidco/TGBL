@@ -6,6 +6,7 @@ import PlayerForm from "../components/PlayerForm";
 import Modal from "../components/Modal";
 
 function PlayerDisplay() {
+  //player name is grabbed from the url is lowercase because of how it is passed in via params
   let { playername } = useParams()
 
   //Sets the player state to the value of the param in the url. It checks local storage for this
@@ -38,7 +39,7 @@ function PlayerDisplay() {
       {editModal &&
         <Modal>
           <button onClick={toggleModal}>Cancel</button>
-          <PlayerForm />
+          <PlayerForm player={player} edit={true}/>
         </Modal>
       }
       <div className="row">
