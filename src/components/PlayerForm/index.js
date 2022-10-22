@@ -55,7 +55,6 @@ function PlayerForm() {
         setPlayer({ ...player, numberOfSlots: tempState })
     }
 
-
     function handleFormSubmit(event) {
         event.preventDefault();
         //If player name is blank
