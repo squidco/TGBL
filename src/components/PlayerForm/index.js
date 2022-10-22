@@ -68,8 +68,7 @@ function PlayerForm(props) {
         setPlayer({ ...player, numberOfSlots: tempState })
     }
 
-    //Checks the player object and validates that the forms are correctly filled out before letting someone submit a new player
-    function handleNewPlayer(event) {
+    function handleFormSubmit(event) {
         event.preventDefault();
         //If player name is blank
         if (player.playerName === "") {
