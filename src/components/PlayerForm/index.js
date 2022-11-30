@@ -68,7 +68,7 @@ function PlayerForm(props) {
         setPlayer({ ...player, numberOfSlots: tempState })
     }
 
-    function handleFormSubmit(event) {
+    function handleNewPlayer(event) {
         event.preventDefault();
         //If player name is blank
         if (player.playerName === "") {

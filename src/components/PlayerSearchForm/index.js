@@ -3,10 +3,13 @@ import { Redirect } from "react-router-dom";
 
 
 function PlayerSearchForm() {
+    //state for redirecting to a new page
     const [redir, setRedir] = useState({ go: false, to: "" })
 
+    //state for handling the users input into the search bar
     const [search, setSearch] = useState("")
 
+    //state for throwing validation errors
     const [valErr, setValErr] = useState({
         open: false,
         message: ""
