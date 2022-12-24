@@ -23,7 +23,7 @@ function SpellSlots() {
         </div>
       </section>
       <section className="row">
-        <div className="col-md-6">
+        <div className="col-md-4">
           <PlayerSearchForm />
           <br />
           <PlayerForm />

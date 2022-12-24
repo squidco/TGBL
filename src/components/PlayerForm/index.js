@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PopUp from "../PopUp";
 import { Redirect } from "react-router-dom";
 import SpellSlotInputs from "../SpellSlotInputs";
+import "./style.css"
 
 function PlayerForm(props) {
     const [redir, setRedir] = useState({ go: false, to: "" })
@@ -119,33 +120,46 @@ function PlayerForm(props) {
         <>
             {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
             <form>
-                {!props.edit && <input
-                    type="text"
-                    placeholder="Enter your name"
-                    onChange={handleFormInput}
-                    id="playerName"
-                    name="playerName"
-                    className="m-1"
-                ></input>}
-                <input
-                    type="number"
-                    placeholder="Player level?"
-                    onChange={handleFormInput}
-                    id="playerLevel"
-                    name="playerLevel"
-                    className="m-1"
-                ></input>
-                <input
-                    type="number"
-                    placeholder="Highest level spellslot?"
-                    onChange={handleFormInput}
-                    id="highestSlot"
-                    name="highestSlot"
-                    className="m-1"
-                ></input>
-                <button onClick={props.edit ? handleExistingPlayer : handleNewPlayer}>Save</button>
-                {valErr.open && <PopUp color="danger" message={valErr.message} />}
+                {!props.edit && <>
+                    <div className="form-group">
+                        <label htmlFor="playerName" className="m-1">Name</label>
+                        <input
+                            type="text"
+                            placeholder="Greeblebottom"
+                            onChange={handleFormInput}
+                            id="playerName"
+                            name="playerName"
+                            className="m-1 custom-input"
+                        ></input>
+                    </div>
+                </>
+                }
+                <div className="form-group">
+                    <label htmlFor="playerLevel" className="m-1">Player Level</label>
+                    <input
+                        type="number"
+                        placeholder="10"
+                        onChange={handleFormInput}
+                        id="playerLevel"
+                        name="playerLevel"
+                        className="m-1 custom-input"
+                    ></input>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="highestSlot" className="m-1">Highest Spellslot</label>
+                    <input
+                        type="number"
+                        placeholder="2"
+                        onChange={handleFormInput}
+                        id="highestSlot"
+                        name="highestSlot"
+                        className="m-1 custom-input"
+                    ></input>
+                </div>
                 <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
+                <br></br>
+                <button onClick={props.edit ? handleExistingPlayer : handleNewPlayer} className="m-1">Save</button>
+                {valErr.open && <PopUp color="danger" message={valErr.message} />}
             </form>
         </>
     )

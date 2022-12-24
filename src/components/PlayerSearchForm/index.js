@@ -33,7 +33,7 @@ function PlayerSearchForm() {
     }
 
     return (
-        <div>
+        <>
             {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
             <form>
                 <input type="text"
@@ -43,9 +43,11 @@ function PlayerSearchForm() {
                     name="search"
                     className="m-1"
                 ></input>
+                <br></br>
                 <button type="submit" onClick={handleSearchSubmit}>Search</button>
             </form>
-        </div>
+        </>
+
     )
 }
 
