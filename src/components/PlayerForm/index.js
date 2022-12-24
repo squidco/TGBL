@@ -119,7 +119,7 @@ function PlayerForm(props) {
     return (
         <>
             {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
-            <form>
+            <form className="custom-form">
                 {!props.edit && <>
                     <div className="form-group">
                         <label htmlFor="playerName" className="m-1">Name</label>
