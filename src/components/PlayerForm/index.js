@@ -3,6 +3,7 @@ import PopUp from "../PopUp";
 import { Redirect } from "react-router-dom";
 import SpellSlotInputs from "../SpellSlotInputs";
 import "./style.css"
+import "../../pages/style.css"
 
 function PlayerForm(props) {
     const [redir, setRedir] = useState({ go: false, to: "" })
@@ -122,43 +123,43 @@ function PlayerForm(props) {
             <form className="custom-form">
                 {!props.edit && <>
                     <div className="form-group">
-                        <label htmlFor="playerName" className="m-1">Name</label>
+                        <label htmlFor="playerName" className="m-1 words">Name</label>
                         <input
                             type="text"
                             placeholder="Greeblebottom"
                             onChange={handleFormInput}
                             id="playerName"
                             name="playerName"
-                            className="m-1 custom-input"
+                            className="m-1 custom-input words"
                         ></input>
                     </div>
                 </>
                 }
                 <div className="form-group">
-                    <label htmlFor="playerLevel" className="m-1">Player Level</label>
+                    <label htmlFor="playerLevel" className="m-1 words">Player Level</label>
                     <input
                         type="number"
                         placeholder="10"
                         onChange={handleFormInput}
                         id="playerLevel"
                         name="playerLevel"
-                        className="m-1 custom-input"
+                        className="m-1 custom-input words"
                     ></input>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="highestSlot" className="m-1">Highest Spellslot</label>
+                    <label htmlFor="highestSlot" className="m-1 words">Highest Spellslot</label>
                     <input
                         type="number"
                         placeholder="2"
                         onChange={handleFormInput}
                         id="highestSlot"
                         name="highestSlot"
-                        className="m-1 custom-input"
+                        className="m-1 custom-input words"
                     ></input>
                 </div>
                 <SpellSlotInputs handleChange={pushToNOSArr} highestSlot={player.highestSlot} />
                 <br></br>
-                <button onClick={props.edit ? handleExistingPlayer : handleNewPlayer} className="m-1">Save</button>
+                <button onClick={props.edit ? handleExistingPlayer : handleNewPlayer} className="m-1 words">Save</button>
                 {valErr.open && <PopUp color="danger" message={valErr.message} />}
             </form>
         </>

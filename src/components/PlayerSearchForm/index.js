@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css"
+import "../../pages/style.css"
 
 function PlayerSearchForm() {
     //state for redirecting to a new page
@@ -37,17 +38,17 @@ function PlayerSearchForm() {
             {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
             <form className="custom-form">
                 <div className="form-group">
-                <label htmlFor="search" className="m-1">Search for your character</label>
+                <label htmlFor="search" className="m-1 words">Search for your character</label>
                 <input type="text"
                     placeholder="John"
                     onChange={handleSearchInput}
                     id="search"
                     name="search"
-                    className="m-1 custom-input"
+                    className="m-1 custom-input words"
                     ></input>
                     </div>
                 <br></br>
-                <button type="submit" onClick={handleSearchSubmit}>Search</button>
+                <button type="submit" onClick={handleSearchSubmit} className="words">Search</button>
             </form>
         </>
 
