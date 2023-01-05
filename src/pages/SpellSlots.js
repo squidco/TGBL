@@ -4,7 +4,7 @@ import "./style.css";
 import { Redirect } from "react-router-dom";
 import PlayerSearchForm from "../components/PlayerSearchForm";
 
-function SpellSlots() {  
+function SpellSlots() {
 
   const [transition, setTransitionState] = useState({
     start: false,
@@ -23,13 +23,13 @@ function SpellSlots() {
         </div>
       </section>
       <section className="row">
-        <div className="col-md-4">
+        <div className="col">
           <PlayerSearchForm />
           <br />
           <PlayerForm />
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 }
 
