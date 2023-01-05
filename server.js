@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const apiRoutes = require("./routes/index");
 
 app.use(express.static(path.join(__dirname, "build")));
@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/spellBooks", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/spellBooks", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
 app.use(apiRoutes);
 
