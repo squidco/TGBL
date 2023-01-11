@@ -7,9 +7,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         unique: true,
         lowercase: true,
-        match: [/^[A-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Z0-9.-]+$/, "is invalid"]
+        required: true,
+        match: [/.+@.+\..+/, "is invalid"]
     },
-    password: String,
+    password: {
+        type: String,
+        lowercase: true,
+        required: true
+    },
     characters: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Character"
@@ -17,9 +22,14 @@ const UserSchema = new mongoose.Schema({
 })
 
 // encrypts user password before saving to database
-UserSchema.pre("save", async function(next){
+UserSchema.pre("save", async function (next) {
     const salt = await bcrypt.genSalt()
     this.password = await bcrypt.hash(this.password, salt)
+    next()
 })
+
+UserSchema.methods.checkPassword = async function (password) {
+    return await bcrypt.compare(password, this.passwords)
+}
 
 module.exports = mongoose.model("User", UserSchema)
