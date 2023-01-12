@@ -23,13 +23,13 @@ const UserSchema = new mongoose.Schema({
 
 // encrypts user password before saving to database
 UserSchema.pre("save", async function (next) {
-    const salt = await bcrypt.genSalt()
-    this.password = await bcrypt.hash(this.password, salt)
+    const saltRounds = 10
+    this.password = await bcrypt.hash(this.password, saltRounds)
     next()
 })
 
 UserSchema.methods.checkPassword = async function (password) {
-    return await bcrypt.compare(password, this.passwords)
+    return await bcrypt.compare(password, this.password)
 }
 
 module.exports = mongoose.model("User", UserSchema)

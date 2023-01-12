@@ -20,16 +20,16 @@ module.exports = {
 
     },
 
-    login: async function ({ email, password }) {
-        // console.log(req)
-        const user = db.User.findOne({ email })
+    login: async function (req, res) {
+        try {
+        const user = await db.Users.findOne({ email: req.body.email })
         if (!user) {
             console.log("No user with that email was found.")
+            res.status(404)
             return
         }
-        console.log(user)
 
-        const correctPassword = user.checkPassword(password)
+        const correctPassword = await user.checkPassword(req.body.password)
 
         if (!correctPassword) {
             console.log("Password is incorrect.")
@@ -37,7 +37,11 @@ module.exports = {
 
         //creates the jwt for the user
         const token = signToken(user)
-
+        res.json(token)
         return { token, user }
+    } catch(error) {
+        console.log(error)
+        res.status(400)
+    }
     }
 }
