@@ -31,6 +31,8 @@ module.exports = {
 
         if (!correctPassword) {
             console.log("Password is incorrect.")
+            res.status(401).json("Password is incorrect.")
+            return
         }
 
         //creates the jwt for the user

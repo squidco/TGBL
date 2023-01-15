@@ -14,7 +14,6 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }
-        res.status(200)
     },
     getSingleCharacter: async function (req, res) {
         //uses req.params.characterName to search for a character
@@ -31,6 +30,7 @@ module.exports = {
         }
     },
     getAllCharacters: async function (req, res) {
+        //uses req.user.id to get all of a user's characters
         try {
             const user = await db.Users.findById(req.user._id)
             const charactersArr = user.characters
@@ -39,7 +39,16 @@ module.exports = {
             console.log(error)
         }
     },
-    deleteCharacter: function (req, res) {
-
+    deleteCharacter: async function (req, res) {
+        //uses req.params.characterName to delete a character. Note that in the character subdoc it is referencing playerName
+        try {
+            const user = await db.Users.findOneAndUpdate(
+                { _id: req.user._id },
+                { $pull: { characters: { playerName: req.params.characterName } } },
+                { new: true, useFindAndModify: false})
+            res.json(user.characters)
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
