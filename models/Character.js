@@ -4,7 +4,8 @@ const CharacterSchema = new mongoose.Schema({
     playerName: {
         type: String,
         unique: true,
-        trim: true
+        trim: true,
+        lowercase: true
     },
     playerLevel: Number,
     highestSlot: Number,

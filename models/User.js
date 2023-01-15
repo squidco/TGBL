@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
+//package to encrypt password
 const bcrypt = require("bcrypt")
 
+//character subdocument
 const characterSchema = require("./Character")
 
 const UserSchema = new mongoose.Schema({
@@ -9,11 +11,10 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         lowercase: true,
         required: true,
-        match: [/.+@.+\..+/, "is invalid"]
+        match: [/.+@.+\..+/, "Please enter a valid email."]
     },
     password: {
         type: String,
-        lowercase: true,
         required: true
     },
     characters: [characterSchema]
@@ -26,6 +27,7 @@ UserSchema.pre("save", async function (next) {
     next()
 })
 
+//checks if password entered for login matches the stored password
 UserSchema.methods.checkPassword = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
