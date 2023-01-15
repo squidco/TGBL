@@ -1,17 +1,17 @@
 const mongoose = require("mongoose")
 
 const CharacterSchema = new mongoose.Schema({
-    name: {
+    playerName: {
         type: String,
         unique: true,
         trim: true
     },
-    level: Number,
-    highestSpellSlot: Number,
+    playerLevel: Number,
+    highestSlot: Number,
     numberOfSlots: [{
         id: Number,
         slots: Number
     }]
 })
 
-module.exports = mongoose.model("Character", CharacterSchema)
+module.exports = CharacterSchema

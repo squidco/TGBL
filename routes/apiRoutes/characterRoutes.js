@@ -4,10 +4,11 @@ const {authMiddleware} = require("../../utils/auth")
 
 router.route("/:characterName")
     .get(authMiddleware, characterController.getSingleCharacter)
-    .post(authMiddleware, characterController.createCharacter)
-    .delete()
+    .delete(authMiddleware, characterController.deleteCharacter)
 
 router.route("/")
     .get(authMiddleware, characterController.getUsersCharacters)
+    .post(authMiddleware, characterController.createCharacter)
+
 
 module.exports = router

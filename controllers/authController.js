@@ -12,10 +12,8 @@ module.exports = {
             console.log("\n SIGNUP", token)
 
             res.json(newUser)
-            return { token, newUser }
         } catch (error) {
             res.json(error)
-
         }
 
     },
@@ -37,8 +35,7 @@ module.exports = {
 
         //creates the jwt for the user
         const token = signToken(user)
-        res.json(token)
-        return { token, user }
+        res.json({user, token})
     } catch(error) {
         console.log(error)
         res.status(400)

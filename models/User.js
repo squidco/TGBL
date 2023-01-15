@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
 
+const characterSchema = require("./Character")
 
 const UserSchema = new mongoose.Schema({
     email: {
@@ -15,16 +16,13 @@ const UserSchema = new mongoose.Schema({
         lowercase: true,
         required: true
     },
-    characters: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Character"
-    }]
+    characters: [characterSchema]
 })
 
 // encrypts user password before saving to database
 UserSchema.pre("save", async function (next) {
-    const saltRounds = 10
-    this.password = await bcrypt.hash(this.password, saltRounds)
+    const salt = await bcrypt.genSalt()
+    this.password = await bcrypt.hash(this.password, salt)
     next()
 })
 
