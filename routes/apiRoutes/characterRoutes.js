@@ -7,7 +7,7 @@ router.route("/:characterName")
     .delete(authMiddleware, characterController.deleteCharacter)
 
 router.route("/")
-    .get(authMiddleware, characterController.getUsersCharacters)
+    .get(authMiddleware, characterController.getAllCharacters)
     .post(authMiddleware, characterController.createCharacter)
 
 

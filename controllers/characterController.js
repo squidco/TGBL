@@ -30,8 +30,14 @@ module.exports = {
             console.log(error)
         }
     },
-    getUsersCharacters: function (req, res) {
-
+    getAllCharacters: async function (req, res) {
+        try {
+            const user = await db.Users.findById(req.user._id)
+            const charactersArr = user.characters
+            res.json(charactersArr)
+        } catch (error) {
+            console.log(error)
+        }
     },
     deleteCharacter: function (req, res) {
 
