@@ -13,7 +13,7 @@ module.exports = {
         }
 
         if (!token) {
-            return req
+            res.status(403).json("MISSING AUTH TOKEN")
         }
 
         try {

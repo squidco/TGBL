@@ -45,8 +45,19 @@ module.exports = {
             const user = await db.Users.findOneAndUpdate(
                 { _id: req.user._id },
                 { $pull: { characters: { playerName: req.params.characterName } } },
-                { new: true, useFindAndModify: false})
+                { new: true, useFindAndModify: false })
             res.json(user.characters)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    updateCharacter: async function (req, res) {
+        try {
+            const user = await db.Users.findOneAndUpdate(
+                { _id: req.user._id, "characters.playerName": req.params.characterName },
+                { $set: { "characters.$": req.body } }
+            )
+            res.json(user)
         } catch (error) {
             console.log(error)
         }

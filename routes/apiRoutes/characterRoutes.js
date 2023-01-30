@@ -5,6 +5,7 @@ const {authMiddleware} = require("../../utils/auth")
 router.route("/:characterName")
     .get(authMiddleware, characterController.getSingleCharacter)
     .delete(authMiddleware, characterController.deleteCharacter)
+    .put(authMiddleware, characterController.updateCharacter)
 
 router.route("/")
     .get(authMiddleware, characterController.getAllCharacters)
