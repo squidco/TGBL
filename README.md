@@ -2,7 +2,7 @@
 A spell slot tracker for DnD.
 
 ## Description
-TGBL is a spell slot tracker for DnD that is simple to use. You can create your character and add their spell slots then use a simple toggle to say if they have been expended or not.
+TGBL is a spell slot tracker for DnD that is simple to use. You can create your character and add their spell slots then use a simple toggle to say if they have been expended or not. Currently the site functions on client side storage, however, a backend exists for users and their characters which needs front-end integration before it becomes fully operational. If you want to use the client side storage version you can visit the deployed site link or use the heroku-stable-deploy branch locally.
 
 ## Usage
 Open the site and click the button that says "Spellslots". You will be redirected to the next page which will allow you to create a character by entering their name, level, and highest level spell slot. Upon entering their highest level spell slot a new form will pop up below the original one that will allow you to enter how many spell slots are available for each level of spell. You can then click save and it will take you to the next page which displays your characters spell slots. You may also search for a previously created character instead of creating a new one.
