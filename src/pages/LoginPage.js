@@ -1,9 +1,10 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./style.css"
 
 function LoginPage() {
     const [loginForm, setLoginForm] = useState({
-        username: "",
+        email: "",
         password: ""
     })
 
@@ -13,13 +14,26 @@ function LoginPage() {
         setLoginForm({ ...loginForm, [name]: value})
     }
 
+    function handleSubmit(){
+        axios({
+            method: "POST",
+            url: "/api/auth/login",
+            data: loginForm
+        }).then((response) => {
+            console.log(response)
+            if(response.status === 200){
+                document.cookie = `token=${response.data.token}; Secure;`
+            } 
+        })
+    }
+
     return (
         <div className="container">
             <div className="form-group">
-                <label htmlFor="username" className="m-1 words">Username</label>
+                <label htmlFor="email" className="m-1 words">Email</label>
                 <input
-                    id="username"
-                    name="username"
+                    id="email"
+                    name="email"
                     onChange={handleFormInput}
                     className="m-1 words"
                 ></input>
@@ -33,6 +47,9 @@ function LoginPage() {
                     className="m-1 words"
                 ></input>
             </div>
+            <button onClick={handleSubmit} className="m-1 words">Login</button>
         </div>
     )
 }
+
+export default LoginPage

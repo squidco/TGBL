@@ -26,8 +26,15 @@ module.exports = {
 
         next()
     },
+    routeMiddleware: function (token) {
+        try {
+            jwt.verify(token, secret, { maxAge: expiration })
+            return true
+        } catch(error){
+            console.log(error)
+        }
+    },
     signToken: function ({ email, _id }) {
-        console.log("\n SIGNTOKEN", email, _id)
         const payload = { email, _id }
 
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration })
