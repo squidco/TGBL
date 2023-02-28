@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Nav({ handleHamburgerClick }) {
   return (
-    <nav className="row bar">
+    <nav className="bar">
       <div className="col-md-9">
         <Link className="logo" to="/">
           TGBL
