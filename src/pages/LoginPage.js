@@ -1,8 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./style.css"
 
 function LoginPage() {
+    //state for redirecting to a new page
+    const [redir, setRedir] = useState({ to: "" })
+
     const [loginForm, setLoginForm] = useState({
         email: "",
         password: ""
@@ -14,7 +18,9 @@ function LoginPage() {
         setLoginForm({ ...loginForm, [name]: value })
     }
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault()
+        console.log("something")
         axios({
             method: "POST",
             url: "/api/auth/login",
@@ -23,12 +29,14 @@ function LoginPage() {
             console.log(response)
             if (response.status === 200) {
                 document.cookie = `token=${response.data.token}; Secure;`
+                setRedir({ to: response.data.user.email })
             }
         })
     }
 
     return (
         <div className="text-center login-container">
+            {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
             <form className="form-signin">
                 <div className="form-group">
                     <label htmlFor="email" className="m-1 words">Email</label>
