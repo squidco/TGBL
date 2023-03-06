@@ -22,8 +22,19 @@ const routeGuard = async () => {
     }
   }
 
-function ProtectedRoute() {
-  return routeGuard 
+function ProtectedRoute({children, ...rest}) {
+    return (
+        <Route
+          {...rest}
+          render={() => {
+            return routeGuard() === true ? (
+              children
+            ) : (
+              <Redirect to="/login" />
+            );
+          }}
+        />
+      );
 }
 
 export default ProtectedRoute

@@ -13,7 +13,7 @@ module.exports = {
         }
 
         if (!token) {
-            res.status(403).json("MISSING AUTH TOKEN")
+            return res.status(403).json({ message: "MISSING AUTH TOKEN" })
         }
 
         try {
@@ -21,18 +21,11 @@ module.exports = {
             req.user = data
         } catch (error) {
             console.log("\n INVALID TOKEN", error)
-            return res.status(400).json("INVALID TOKEN")
+            return res.status(400).json({ message: "INVALID TOKEN" })
         }
 
+
         next()
-    },
-    routeMiddleware: function (token) {
-        try {
-            jwt.verify(token, secret, { maxAge: expiration })
-            return true
-        } catch(error){
-            console.log(error)
-        }
     },
     signToken: function ({ email, _id }) {
         const payload = { email, _id }

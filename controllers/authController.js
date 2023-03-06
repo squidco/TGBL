@@ -1,6 +1,15 @@
 const db = require("../models")
 const { signToken, routeMiddleware } = require("../utils/auth")
 
+
+// It doesn't seem like I need the whole Route Guard function
+// I can use the auth service alone and if they have an invalid token
+// They will be redirected to login again
+
+
+
+
+
 module.exports = {
     signUp: async function (req, res) {
         // console.log(req)
@@ -18,14 +27,7 @@ module.exports = {
 
     },
     checkAuth: function (req, res) {
-        let render = routeMiddleware(req.body.token)
-        console.log(render)
-        if (render) {
-            return res.status(200).json()
-        }
-        else {
-            return res.status(403).json()
-        }
+        return res.status(200).json({ message: "TOKEN VERIFIED" })
     },
     login: async function (req, res) {
         try {

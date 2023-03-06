@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import AuthService from "../services/AuthService";
 import "./style.css"
 
 function LoginPage() {
@@ -20,7 +21,6 @@ function LoginPage() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log("something")
         axios({
             method: "POST",
             url: "/api/auth/login",
@@ -28,7 +28,7 @@ function LoginPage() {
         }).then((response) => {
             console.log(response)
             if (response.status === 200) {
-                document.cookie = `token=${response.data.token}; Secure;`
+                AuthService.login(response.data.token)
                 setRedir({ to: response.data.user.email })
             }
         })

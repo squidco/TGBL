@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav/index";
 import "./App.css";
 import Landing from "./pages/Landing.js";
@@ -14,30 +14,8 @@ import SpellSlots from "./pages/SpellSlots"
 import PlayerDisplay from "./pages/PlayerDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
+import AuthService from "./services/AuthService";
 import axios from "axios";
-
-async function routeGuard() {
-  const token = document.cookie
-    .split('; ').find((row) => row.startsWith("token="))
-    ?.split("=")[1]
-  console.log(token)
-
-  let dbRes = await axios({
-    method: "POST",
-    url: "/api/auth/checkauth",
-    data: { token }
-  })
-
-  console.log(dbRes)
-  if (dbRes.status === 200) {
-    console.log(dbRes.status)
-    return true
-  } else {
-    console.log(dbRes.status)
-    return false
-  }
-}
-
 
 function App() {
   return (
@@ -50,12 +28,11 @@ function App() {
         <Route path="/spellslots">
           <SpellSlots />
         </Route>
-        <Route exact path="/playerdisplay/:playername" render={() => (
-          routeGuard() ? (
+        <Route exact path="/playerdisplay/:playername">
+          {AuthService.loggedIn() ? (
             <PlayerDisplay />) : (
-            <Redirect to="/login"></Redirect>
-          )
-        )}>
+            <Redirect to="/login" />
+          )}
         </Route>
         <Route exact path="/spellbook">
           <Spellbook />
