@@ -8,14 +8,12 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import ChooseClass from "./pages/ChooseClass";
 import Spellbook from "./pages/SpellBook";
 import SpellSlots from "./pages/SpellSlots"
 import PlayerDisplay from "./pages/PlayerDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
 import AuthService from "./services/AuthService";
-import axios from "axios";
 
 function App() {
   return (
