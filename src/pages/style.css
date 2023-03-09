@@ -1,4 +1,4 @@
-button{
+button {
   border: none;
   border-radius: .5rem;
   background-color: rgb(0, 0, 0);
@@ -44,6 +44,8 @@ button{
   align-self: center;
 }
 
+/* animations */
+
 @keyframes fadeOut {
   from {
     opacity: 100%;
@@ -63,6 +65,8 @@ button{
     opacity: 100%;
   }
 }
+
+/* end animations */
 
 .fade-out {
   animation-duration: 1s;
@@ -85,6 +89,27 @@ button{
   transition: opacity 1s;
 }
 
-.op-0{
+.op-0 {
   opacity: 0;
+}
+
+/*  LOGIN PAGE  */
+
+.form-signin {
+  max-width: 330px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
 }
