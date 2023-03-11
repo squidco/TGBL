@@ -32,7 +32,7 @@ function Landing() {
         With TGBL we do the annoying work for you. You can create your character and enter their spell slots then let us do the rest. We will generate a spell slot tracker for you with togglable slots so if you expend a slot its merely a click of a button to change.
       </p>
       <br />
-      <button onClick={() => changePage("/spellslots")}>SpellSlots</button>
+      <button onClick={() => changePage("/login")}>Login</button>
     </section>
   );
 
