@@ -24,7 +24,11 @@ function App() {
           <Landing />
         </Route>
         <Route path="/characters">
-          <Characters />
+          {AuthService.loggedIn() ? (
+            <Characters />) : (
+            <Redirect to="/login" />
+          )
+          }
         </Route>
         <Route exact path="/playerdisplay/:playername">
           {AuthService.loggedIn() ? (
