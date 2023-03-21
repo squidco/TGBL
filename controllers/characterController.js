@@ -23,6 +23,8 @@ module.exports = {
             charactersArr.forEach(element => {
                 if (req.params.characterName === element.playerName) {
                     res.json(element)
+                } else {
+                    res.status(404).json("Character not found")
                 }
             });
         } catch (error) {
