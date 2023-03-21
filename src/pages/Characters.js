@@ -39,7 +39,7 @@ function Characters() {
     console.log(characters)
   }, [])
 
-
+  // Handles the user clicking on a character card to go to that character
   function handlePlayerClick(event) {
     event.preventDefault()
     event.stopPropagation()
@@ -60,8 +60,8 @@ function Characters() {
             {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
             {characterList.map((el) => (
               <div className="character-group" data-character={el.playerName}>
-                <h1>{el.playerName}</h1>
-
+                <h1 className="title">{el.playerName}</h1>
+                <p className="words pl-3">Level: {el.playerLevel}</p>
               </div>
             ))}
           </>
