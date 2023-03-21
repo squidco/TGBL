@@ -30,20 +30,17 @@ function PlayerSearchForm() {
     async function handleSearchSubmit(event) {
         event.preventDefault()
         try {
-            const query = await axios.get(`/api/characters/${search.toLowerCase()}`, {
-              headers: { "authorization": AuthService.getToken() }
+            const { data } = await axios.get(`/api/characters/${search.toLowerCase()}`, {
+                headers: { "authorization": AuthService.getToken() }
             })
 
-            console.log(query)
-            // if(data){
-            //     setRedir({go: true, to: search.toLowerCase()})
-            // } else {
-            //     setValErr({open: true, message: "No character found with that name"})
-            // }
-          } catch (err) {
-            setValErr({open: true, message: err.response.data})
+            if (data) {
+                setRedir({ go: true, to: search.toLowerCase() })
+            }
+        } catch (err) {
+            setValErr({ open: true, message: err.response.data })
             console.log(err.response.data)
-          }
+        }
 
 
         // if (localStorage.getItem(search.toLowerCase())) {
@@ -58,15 +55,15 @@ function PlayerSearchForm() {
             {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
             <form className="custom-form">
                 <div className="form-group">
-                <label htmlFor="search" className="m-1 words">Search for your character</label>
-                <input type="text"
-                    placeholder="John"
-                    onChange={handleSearchInput}
-                    id="search"
-                    name="search"
-                    className="m-1 custom-input words"
+                    <label htmlFor="search" className="m-1 words">Search for your character</label>
+                    <input type="text"
+                        placeholder="John"
+                        onChange={handleSearchInput}
+                        id="search"
+                        name="search"
+                        className="m-1 custom-input words"
                     ></input>
-                    </div>
+                </div>
                 <br></br>
                 <button type="submit" onClick={handleSearchSubmit} className="words">Search</button>
                 {valErr.open && <PopUp color="danger" message={valErr.message} />}
