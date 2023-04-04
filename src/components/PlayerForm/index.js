@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import PopUp from "../PopUp";
 import { Redirect } from "react-router-dom";
 import SpellSlotInputs from "../SpellSlotInputs";
+import axios from "axios";
+import AuthService from "../../services/AuthService";
 import "./style.css"
 import "../../pages/style.css"
 
@@ -37,6 +39,7 @@ function PlayerForm(props) {
     //handles the changes for forum input
     function handleFormInput(event) {
         event.preventDefault();
+        console.log(player)
         const { name, value } = event.target;
         setPlayer({ ...player, [name]: value });
     }
@@ -70,7 +73,7 @@ function PlayerForm(props) {
         setPlayer({ ...player, numberOfSlots: tempState })
     }
 
-    function handleNewPlayer(event) {
+    async function handleNewPlayer(event) {
         event.preventDefault();
         //If player name is blank
         if (player.playerName === "") {
@@ -92,7 +95,18 @@ function PlayerForm(props) {
         } else {
             setValErr({ open: false, message: "" })
         }
-        localStorage.setItem(player.playerName.toLowerCase(), JSON.stringify(player));
+        try {
+            const { data } = await axios.post("/api/characters", player, {
+                headers: {
+                    "authorization": AuthService.getToken(),
+                    "Content-Type": "application/json"
+                }
+            })
+            console.log(data)
+            return data
+        } catch (err) {
+            console.log(err)
+        }
         setRedir({ go: true, to: player.playerName.toLowerCase() })
     }
 

@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 
+
+//This is a subdocument that exists on the User Model
 const CharacterSchema = new mongoose.Schema({
     playerName: {
         type: String,
