@@ -6,7 +6,7 @@ function SpellSlotInputs(props) {
   var slotArray = [];
   //I thought making a backwards for loop would spit out the inputs in the correct order but it didn't
   for (var i = props.highestSlot; i >= 1; i--) {
-    var number = `lv${i}`;
+    var number = i;
     slotArray.push(number);
   }
 
@@ -15,8 +15,8 @@ function SpellSlotInputs(props) {
     slotArray = slotArray.reverse()
     slotInputs = slotArray.map((level) => (
       <div className="form-group" key={level}>
-        <label htmlFor={level} className="m-1">{level + " spell slots"}</label>
-        <input onChange={props.handleChange} id={level} name="slots" type="number" placeholder={level + " spell slots"} className={"m-1 custom-input"}></input>
+        <label htmlFor={level} className="m-1">{"Level " + level + " spell slots"}</label>
+        <input onChange={props.handleChange} id={level} name="slots" type="number" placeholder={"Level " + level + " spell slots"} className={"m-1 custom-input"}></input>
       </div>
     ));
   }

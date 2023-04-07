@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Not currently in use but it was formatted to match an api response and store the information that came back
+// Probably not the best way to do that
 const SpellSchema = new mongoose.Schema({
   spell_name: String,
   name: {

@@ -9,7 +9,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Spellbook from "./pages/SpellBook";
-import SpellSlots from "./pages/SpellSlots"
+import Characters from "./pages/Characters"
 import PlayerDisplay from "./pages/PlayerDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
@@ -23,8 +23,12 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route path="/spellslots">
-          <SpellSlots />
+        <Route path="/characters">
+          {AuthService.loggedIn() ? (
+            <Characters />) : (
+            <Redirect to="/login" />
+          )
+          }
         </Route>
         <Route exact path="/playerdisplay/:playername">
           {AuthService.loggedIn() ? (

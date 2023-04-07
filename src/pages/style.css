@@ -113,3 +113,11 @@ button {
   display: block;
   width: 100%;
 }
+
+/* CHARACTERS PAGE */
+
+.character-group{
+  background-color: lightgray;
+  border: silver solid;
+  border-radius: 0.5em;
+}

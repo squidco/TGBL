@@ -5,6 +5,7 @@ const db = require("../models")
 module.exports = {
     createCharacter: async function (req, res) {
         //uses req.body to add a new character to the characters array of a user
+        console.log(req.body)
         try {
             const user = await db.Users.findOneAndUpdate(
                 { _id: req.user._id },
@@ -23,6 +24,8 @@ module.exports = {
             charactersArr.forEach(element => {
                 if (req.params.characterName === element.playerName) {
                     res.json(element)
+                } else {
+                    res.status(404).json("Character not found")
                 }
             });
         } catch (error) {
