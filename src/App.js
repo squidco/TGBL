@@ -30,7 +30,7 @@ function App() {
           )
           }
         </Route>
-        <Route exact path="/playerdisplay/:playername">
+        <Route exact path="/playerdisplay/:charactername">
           {AuthService.loggedIn() ? (
             <PlayerDisplay />) : (
             <Redirect to="/login" />

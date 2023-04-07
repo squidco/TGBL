@@ -4,15 +4,36 @@ import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "./style.css";
 import PlayerForm from "../components/PlayerForm";
 import Modal from "../components/Modal";
+import AuthService from "../services/AuthService";
+import axios from "axios"
 
 function PlayerDisplay() {
   //player name is grabbed from the url is lowercase because of how it is passed in via params
-  let { playername } = useParams()
+  let { charactername } = useParams()
 
-  //Sets the player state to the value of the param in the url. It checks local storage for this
+  const [character, setCharacter] = useState({
+    playerName: "",
+    playerLevel: 1,
+    highestSlot: 0,
+    numberOfSlots: []
+  });
+
+  // get user's character data on load
   useEffect(() => {
-    setPlayer(JSON.parse(localStorage.getItem(playername)))
-  }, [playername])
+    async function getCharacterData() {
+      try {
+        const { data } = await axios.get(`/api/characters/${charactername}`, {
+          headers: { "authorization": AuthService.getToken() }
+        })
+        console.log(data)
+        setCharacter(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getCharacterData()
+    console.log(character)
+  }, [])
 
   //State for the css animation that is triggered in the changePage function
   const [transition, setTransitionState] = useState({
@@ -21,13 +42,6 @@ function PlayerDisplay() {
   });
 
   //State for tracking the amount of player spell slots and level
-  const [player, setPlayer] = useState({
-    playerName: "",
-    playerLevel: 1,
-    highestSlot: 0,
-    numberOfSlots: []
-  });
-
   const [editModal, setEditModal] = useState(false)
 
   function toggleModal() {
@@ -39,17 +53,17 @@ function PlayerDisplay() {
       {editModal &&
         <Modal>
           <button onClick={toggleModal}>Cancel</button>
-          <PlayerForm player={player} edit={true}/>
+          <PlayerForm player={character} edit={true}/>
         </Modal>
       }
       <div className="row">
         <div className="col-md-12">
           <button onClick={toggleModal}>Edit</button>
-          <p className="title">{player.playerName} | Level: {player.playerLevel}</p>
+          <p className="title">{character.playerName} | Level: {character.playerLevel}</p>
         </div>
       </div>
       <div className="item-a">
-        <SpellSlotDisplay player={player} />
+        <SpellSlotDisplay player={character} />
       </div>
     </div>
   );

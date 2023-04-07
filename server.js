@@ -10,6 +10,7 @@ const { clog } = require("./utils/clog");
 app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// Custom logging function
 app.use(clog)
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/spellBooks", {

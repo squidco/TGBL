@@ -29,14 +29,15 @@ function LoginPage() {
             console.log(response)
             if (response.status === 200) {
                 AuthService.login(response.data.token)
-                setRedir({ to: response.data.user.email })
+                // Redirects to the characters page
+                setRedir({ to: true })
             }
         })
     }
 
     return (
         <div className="text-center login-container">
-            {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
+            {redir.to && <Redirect to={`/characters/`} />}
             <form className="form-signin">
                 <div className="form-group">
                     <label htmlFor="email" className="m-1 words">Email</label>
