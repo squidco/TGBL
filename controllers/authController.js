@@ -6,21 +6,17 @@ const { signToken, routeMiddleware } = require("../utils/auth")
 // I can use the auth service alone and if they have an invalid token
 // They will be redirected to login again
 
-
-
-
-
 module.exports = {
     signUp: async function (req, res) {
-        // console.log(req)
+        console.log(req.body)
         try {
             const newUser = await db.Users.create({ email: req.body.email, password: req.body.password })
-
+            console.log(newUser)
             const token = signToken(newUser)
 
             console.log("\n SIGNUP", token)
 
-            res.json(newUser)
+            res.json({ newUser, token })
         } catch (error) {
             res.json(error)
         }
