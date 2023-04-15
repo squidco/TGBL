@@ -1,4 +1,4 @@
 module.exports = {
-    Spells: require("./Spells"),
+    // Spells: require("./Spells"),
     Users: require("./User")
 }
