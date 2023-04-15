@@ -44,7 +44,9 @@ function LoginPage() {
             data: loginForm
         }).then((response) => {
             console.log(response)
-            if (response.status === 200) {
+            // I was originally going to do response.statusText === "OK" here to check if the response was good
+            // However that is not working out too well because errors are coming back as 200 and OK
+            if (response.data.token) {
                 AuthService.login(response.data.token)
                 // Redirects to the characters page
                 setRedir({ to: true })
@@ -60,9 +62,9 @@ function LoginPage() {
             data: signUpForm
         }).then((response) => {
             console.log(response)
-            if (response.ok) {
+            if (response.data.token) {
                 AuthService.login(response.data.token)
-                setRedir({ to: response.data.newUser.email })
+                setRedir({ to: true })
             }
         })
     }
@@ -73,9 +75,9 @@ function LoginPage() {
 
     return (
         <>
+                    {redir.to && <Redirect to={`/characters`} />}
             {!toggle &&
                 <div className="text-center login-container">
-                    {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
                     <form className="form-signin">
                         <div className="form-group">
                             <label htmlFor="email" className="m-1 words">Email</label>
@@ -103,7 +105,6 @@ function LoginPage() {
             }
             {toggle &&
                 <div className="text-center login-container">
-                    {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
                     <form className="form-signin">
                         <div className="form-group">
                             <label htmlFor="email" className="m-1 words">Email</label>
