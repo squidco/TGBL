@@ -24,13 +24,21 @@ module.exports = {
             charactersArr.forEach(element => {
                 if (req.params.characterName === element.playerName) {
                     res.json(element)
-                } else {
-                    res.status(404).json("Character not found")
-                }
+                } 
             });
         } catch (error) {
             console.log(error)
         }
+        // My attempt at searching for a specific subdocument based off a property that isn't _id
+        // You can do user.characters.id(idOfSubDocGoesHere) but I wanted to search based off of the playerName property
+        // try {
+        //     const user = await db.Users.findOne({ _id: req.user._id }, function (err, user) {
+        //         console.log("INSIDE QUERY", user)
+        //     })
+        //     console.log("OUTSIDE QUERY", user)
+        // } catch (error) {
+        //     console.log(error)
+        // }
     },
     getAllCharacters: async function (req, res) {
         //uses req.user.id to get all of a user's characters

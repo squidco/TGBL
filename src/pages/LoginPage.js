@@ -46,7 +46,8 @@ function LoginPage() {
             console.log(response)
             if (response.status === 200) {
                 AuthService.login(response.data.token)
-                setRedir({ to: response.data.user.email })
+                // Redirects to the characters page
+                setRedir({ to: true })
             }
         })
     }

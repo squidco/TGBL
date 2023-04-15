@@ -6,8 +6,6 @@ import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
 import AuthService from "../services/AuthService";
 
-//set default header for axios
-
 function Characters() {
 
   const [transition, setTransitionState] = useState({
@@ -19,24 +17,22 @@ function Characters() {
 
   const [redir, setRedir] = useState({ to: "" })
 
-  // function with the call to the database for all of a user's characters
-  async function getCharacterData() {
-    try {
-      const { data } = await axios.get("/api/characters", {
-        headers: { "authorization": AuthService.getToken() }
-      })
-      console.log(data)
-      return data
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   // get user's character data on load
-  useEffect(async () => {
-    const characters = await getCharacterData()
-    setCharacterList(characters)
-    console.log(characters)
+  useEffect(() => {
+    // function to call for all character data for a specific user
+    async function getCharacterData() {
+      try {
+        const { data } = await axios.get("/api/characters", {
+          headers: { "authorization": AuthService.getToken() }
+        })
+        // Sets the character list state 
+        setCharacterList(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    // Calls the function written in the useEffect to get characterData
+    getCharacterData()
   }, [])
 
   // Handles the user clicking on a character card to go to that character
