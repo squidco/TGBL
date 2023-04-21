@@ -14,6 +14,7 @@ module.exports = {
             res.json(user)
         } catch (error) {
             console.log(error)
+            res.status(error)
         }
     },
     getSingleCharacter: async function (req, res) {
@@ -28,6 +29,7 @@ module.exports = {
             });
         } catch (error) {
             console.log(error)
+            res.status(error)
         }
         // My attempt at searching for a specific subdocument based off a property that isn't _id
         // You can do user.characters.id(idOfSubDocGoesHere) but I wanted to search based off of the playerName property

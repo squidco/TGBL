@@ -41,13 +41,6 @@ function PlayerSearchForm() {
             setValErr({ open: true, message: err.response.data })
             console.log(err.response.data)
         }
-
-
-        // if (localStorage.getItem(search.toLowerCase())) {
-        //     setRedir({ go: true, to: search.toLowerCase() })
-        // } else {
-        //     setValErr({ open: true, message: `Cannot find a player with a name of ${search}` })
-        // }
     }
 
     return (

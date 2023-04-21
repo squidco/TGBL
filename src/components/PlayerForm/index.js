@@ -80,6 +80,7 @@ function PlayerForm(props) {
             setValErr({ open: true, message: "Please enter a name." })
             return
             //If the player name is already taken
+            //Need to change this to check the database
         } else if (localStorage.getItem(player.playerName.toLowerCase())) {
             setValErr({ open: true, message: "This player name is already taken. Please try another." })
             return
@@ -103,11 +104,10 @@ function PlayerForm(props) {
                 }
             })
             console.log(data)
-            return data
+            setRedir({ go: true, to: player.playerName.toLowerCase() })
         } catch (err) {
             console.log(err)
         }
-        setRedir({ go: true, to: player.playerName.toLowerCase() })
     }
 
     // This is essentially the same as the above function except it does not have name validation

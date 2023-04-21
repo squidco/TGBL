@@ -39,7 +39,6 @@ function Characters() {
   function handlePlayerClick(event) {
     event.preventDefault()
     event.stopPropagation()
-    console.log(event.target.parentNode.name)
     setRedir({ to: event.target.parentNode.dataset.character })
   }
 
