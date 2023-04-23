@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import HalfCaster from "../components/HalfCaster";
-import { fadeIn } from "../utils/css/animations";
 import "./style.css";
 
 function Spellbook() {
