@@ -7,6 +7,15 @@ button {
   padding: .5vh 1vw;
 }
 
+a {
+  border: none;
+  border-radius: .5rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: unit-rounded, sans-serif;
+  padding: .5vh 1vw;
+}
+
 .landing-page-grid {
   display: grid;
   grid-template-rows: repeat(3, 1fr);

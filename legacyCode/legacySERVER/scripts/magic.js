@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../../../models");
 const axios = require("axios");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/spellBooks", {
