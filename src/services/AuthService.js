@@ -6,16 +6,17 @@ class AuthService {
     }
 
     loggedIn() {
-        console.log("CHECKING FOR TOKEN")
         const token = this.getToken()
+        // the double !! operator turns the token into a boolean value
+        // one ! turns this boolean into the value opposite of what the 
+        // original value was. two ! operators will change it back to what it was originally
         return !!token && !this.isTokenExpired(token)
     }
 
     isTokenExpired(token) {
-        console.log("CHECKING TOKEN EXPIRATION")
+        //Checks if the users token has expired
         try {
             const decoded = decode(token);
-            console.log(decoded)
             if (decoded.exp < Date.now() / 1000) {
                 return true;
             } else return false;
@@ -37,7 +38,7 @@ class AuthService {
     }
 
     logout() {
-
+        
     }
 }
 
