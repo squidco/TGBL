@@ -38,8 +38,20 @@ function Characters() {
   // Handles the user clicking on a character card to go to that character
   function handlePlayerClick(event) {
     event.preventDefault()
-    event.stopPropagation()
     setRedir({ to: event.target.parentNode.dataset.character })
+  }
+
+  async function handleDelete(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    try {
+      const { data } = await axios.delete(`/api/characters/${event.target.parentNode.dataset.character}`,
+        { headers: { "authorization": AuthService.getToken() } }
+      )
+      setCharacterList(data)
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   return (
@@ -55,6 +67,7 @@ function Characters() {
             {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
             {characterList.map((el) => (
               <div className="character-group" data-character={el.playerName}>
+                <button className="words" onClick={handleDelete}>X</button>
                 <h1 className="title">{el.playerName}</h1>
                 <p className="words pl-3">Level: {el.playerLevel}</p>
               </div>
