@@ -64,7 +64,7 @@ function Characters() {
         </div>
         <div className="col" onClick={handlePlayerClick}>
           <>
-            {redir.to && <Redirect to={`/playerdisplay/${redir.to}`} />}
+            {redir.to && <Redirect push to={`/playerdisplay/${redir.to}`} />}
             {characterList.map((el) => (
               <div className="character-group" data-character={el.playerName}>
                 <button className="words" onClick={handleDelete}>X</button>
