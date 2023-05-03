@@ -133,7 +133,7 @@ function PlayerForm(props) {
     //the name form input is wrapped in a conditional render based off of if they are editing or creating a new character
     return (
         <>
-            {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
+            {redir.go && <Redirect push to={`/playerdisplay/${redir.to}`} />}
             <form className="custom-form">
                 {!props.edit && <>
                     <div className="form-group">

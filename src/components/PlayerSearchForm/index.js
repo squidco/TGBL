@@ -45,7 +45,7 @@ function PlayerSearchForm() {
 
     return (
         <>
-            {redir.go && <Redirect to={`/playerdisplay/${redir.to}`} />}
+            {redir.go && <Redirect push to={`/playerdisplay/${redir.to}`} />}
             <form className="custom-form">
                 <div className="form-group">
                     <label htmlFor="search" className="m-1 words">Search for your character</label>
