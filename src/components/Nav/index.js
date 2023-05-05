@@ -4,12 +4,11 @@ import AuthService from "../../services/AuthService";
 import { Link } from "react-router-dom";
 
 function Nav() {
-  const [loggedIn, setLoggedIn] = useState(AuthService.loggedIn())
-  
+  const [loggedIn, setLoggedIn] = useState(AuthService.loggedIn());
+
   useEffect(() => {
-    setLoggedIn(AuthService.loggedIn())
-  }, [window.location.href])
-  
+    setLoggedIn(AuthService.loggedIn());
+  }, [window.location.href]);
 
   return (
     <nav className="bar">
@@ -17,9 +16,18 @@ function Nav() {
         <Link className="logo" to="/">
           TGBL
         </Link>
-        { loggedIn &&
-          <button className="words" onClick={AuthService.logout}>Logout</button>
-        }
+        {loggedIn ? (
+          <>
+            <button className="words" onClick={AuthService.logout}>
+              Logout
+            </button>
+            <Link to={"/characters"}>Characters</Link>
+          </>
+        ) : (
+          <>
+            <Link to={"/login"}>Login</Link>
+          </>
+        )}
       </div>
     </nav>
   );
