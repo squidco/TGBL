@@ -13,6 +13,7 @@ import PlayerDisplay from "./pages/PlayerDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
 import AuthService from "./services/AuthService";
+import Edit from "./pages/Edit";
 
 function App() {
   return (
@@ -40,6 +41,12 @@ function App() {
         </Route>
         <Route exact path="/login">
           <LoginPage />
+        </Route>
+        <Route exact path="/edit/:charactername">
+        {AuthService.loggedIn() ? (
+            <Edit />) : (
+            <Redirect to="/login" />
+          )}
         </Route>
       </Switch>
     </>
