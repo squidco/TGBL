@@ -11,7 +11,9 @@ import CharacterView from "./CharacterView";
 function EditForm({ characterName }) {
   const [redir, setRedir] = useState({ go: false, to: "" });
 
-  //State for tracking the amount of player spell slots and level
+  // State for tracking the amount of player spell slots and level
+  // Instead of setting null values I set other default values because
+  // It was messing up the controlled form
   const [character, setCharacter] = useState({
     playerName: "",
     playerLevel: 1,
@@ -83,7 +85,7 @@ function EditForm({ characterName }) {
   async function editPlayerSubmit(event) {
     event.preventDefault();
     //If the player level is 0 or null
-    if (character.playerLevel === null || character.playerLevel === "0") {
+    if (character.playerLevel === null || character.playerLevel <= 0) {
       setValErr({
         open: true,
         message: "Please enter your character's level.",
@@ -101,9 +103,10 @@ function EditForm({ characterName }) {
       setValErr({ open: false, message: "" });
     }
     //axios call to update character
+    console.log(character);
     try {
       const { data } = await axios.put(
-        `/api/characters/${character.playerName}`,
+        `/api/characters/${characterName}`,
         character,
         {
           headers: {
@@ -113,7 +116,6 @@ function EditForm({ characterName }) {
         }
       );
       console.log(data);
-      setRedir({ go: true, to: character.playerName.toLowerCase() });
     } catch (err) {
       console.log(err);
     }
