@@ -104,10 +104,14 @@ function EditForm({ characterName }) {
     }
     //axios call to update character
     console.log(character);
+
+    // Put call to database
+    // Combines character and numberOfSlots objects together
     try {
+      const updateObject = { ...character, numberOfSlots };
       const { data } = await axios.put(
         `/api/characters/${characterName}`,
-        character,
+        updateObject,
         {
           headers: {
             authorization: AuthService.getToken(),
