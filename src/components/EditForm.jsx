@@ -29,6 +29,12 @@ function EditForm({ characterName }) {
     message: "",
   });
 
+  const [alert, setAlert] = useState({
+    show: false,
+    message: "",
+    color: "success",
+  });
+
   useEffect(() => {
     async function getCharacterData() {
       try {
@@ -120,6 +126,11 @@ function EditForm({ characterName }) {
         }
       );
       console.log(data);
+      setAlert({
+        show: true,
+        message: "Changes successful",
+        color: "success",
+      })
     } catch (err) {
       console.log(err);
     }
@@ -185,6 +196,9 @@ function EditForm({ characterName }) {
         </button>
         {valErr.open && <PopUp color="danger" message={valErr.message} />}
       </form>
+      {alert.show && (
+        <PopUp color={alert.color} message={alert.message}></PopUp>
+      )}
       <CharacterView character={character} numberOfSlots={numberOfSlots} />
     </>
   );
