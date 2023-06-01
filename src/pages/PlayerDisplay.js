@@ -63,7 +63,7 @@ function PlayerDisplay() {
         </div>
       </div>
       <div className="item-a">
-        <SpellSlotDisplay player={character} />
+        <SpellSlotDisplay numberOfSlots={character.numberOfSlots} />
       </div>
     </div>
   );

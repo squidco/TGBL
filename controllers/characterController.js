@@ -31,6 +31,9 @@ module.exports = {
             console.log(error)
             res.status(error)
         }
+        // I have been informed that I should use an aggregate to get this info without the for loop
+        // Just have to implement it
+
         // My attempt at searching for a specific subdocument based off a property that isn't _id
         // You can do user.characters.id(idOfSubDocGoesHere) but I wanted to search based off of the playerName property
         // try {
@@ -68,7 +71,8 @@ module.exports = {
         try {
             const user = await db.Users.findOneAndUpdate(
                 { _id: req.user._id, "characters.playerName": req.params.characterName },
-                { $set: { "characters.$": req.body } }
+                { $set: { "characters.$": req.body } },
+                {new: true, useFindAndModify: false}
             )
             res.json(user)
         } catch (error) {

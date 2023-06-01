@@ -26,7 +26,7 @@ function PlayerForm(props) {
 
     //sets player state to the passed in state unless there is none. keeps the nos array empty to avoid not being able to delete unused spell slots
     useEffect(() => {
-        if (props.player) {
+        if (props.character) {
             setPlayer({
                 playerName: props.player.playerName,
                 playerLevel: props.player.playerLevel,
