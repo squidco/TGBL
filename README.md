@@ -7,23 +7,23 @@ TGBL is a spell slot tracker for DnD that is simple to use. You can create your 
 ## Usage
 When you visit the website you will be greeted with the landing page. From here you can press either login button to go to the login/signup page.
 
-![Image of landing page](./src/assets/screenshots/landing.png)
+![Image of landing page](./client/src/assets/screenshots/landing.png)
 
 On this page you can login or create an account that will store all of your created characters so you can access them anywhere and anytime.
 
-![Image of login page](./src/assets/screenshots/login.png)
+![Image of login page](./client/src/assets/screenshots/login.png)
 
 After logging in/signing up you will move to the characters page where you can choose your character from a list of your created characters, search for a character by name, or create a new character. You can also delete characters or edit them using the button on the character cards.
 
-![Image of character select page](./src/assets/screenshots/character-select.png)
+![Image of character select page](./client/src/assets/screenshots/character-select.png)
 
 If you create or select a character you will be redirected to the character display page where you can see your character and interact with the spell slots that the character has.
 
-![Image of character display page](./src/assets/screenshots/character-display.png)
+![Image of character display page](./client/src/assets/screenshots/character-display.png)
 
 If your character levels up or changes in anyway you can change all their details from the character edit page.
 
-![Image of character edit page](./src/assets/screenshots/character-edit-success.png)
+![Image of character edit page](./client/src/assets/screenshots/character-edit-success.png)
 
 ## Installation
 Clone the repo down to your machine and run
