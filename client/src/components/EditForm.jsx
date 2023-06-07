@@ -130,7 +130,7 @@ function EditForm({ characterName }) {
         show: true,
         message: "Changes successful",
         color: "success",
-      })
+      });
     } catch (err) {
       console.log(err);
     }
@@ -139,67 +139,73 @@ function EditForm({ characterName }) {
   //the name form input is wrapped in a conditional render based off of if they are editing or creating a new character
   return (
     <>
-      {redir.go && <Redirect push to={`/playerdisplay/${redir.to}`} />}
-      <form className="custom-form">
-        <div className="form-group">
-          <label htmlFor="playerName" className="m-1 words">
-            Name
-          </label>
-          <input
-            type="text"
-            placeholder="Greeblebottom"
-            onChange={handleFormInput}
-            id="playerName"
-            name="playerName"
-            className="m-1 custom-input words"
-            value={character.playerName}
-          ></input>
-        </div>
+      <div className="col">
+        {redir.go && <Redirect push to={`/playerdisplay/${redir.to}`} />}
+        <form className="custom-form">
+          <div className="form-group">
+            <label htmlFor="playerName" className="m-1 words">
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="Greeblebottom"
+              onChange={handleFormInput}
+              id="playerName"
+              name="playerName"
+              className="m-1 custom-input words"
+              value={character.playerName}
+            ></input>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="playerLevel" className="m-1 words">
-            Player Level
-          </label>
-          <input
-            type="number"
-            placeholder="10"
-            onChange={handleFormInput}
-            id="playerLevel"
-            name="playerLevel"
-            className="m-1 custom-input words"
-            value={character.playerLevel}
-          ></input>
-        </div>
+          <div className="form-group">
+            <label htmlFor="playerLevel" className="m-1 words">
+              Player Level
+            </label>
+            <input
+              type="number"
+              placeholder="10"
+              onChange={handleFormInput}
+              id="playerLevel"
+              name="playerLevel"
+              className="m-1 custom-input words"
+              value={character.playerLevel}
+            ></input>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="highestSlot" className="m-1 words">
-            Highest Spellslot
-          </label>
-          <input
-            type="number"
-            placeholder="2"
-            onChange={handleFormInput}
-            id="highestSlot"
-            name="highestSlot"
-            className="m-1 custom-input words"
-            value={character.highestSlot}
-          ></input>
-        </div>
+          <div className="form-group">
+            <label htmlFor="highestSlot" className="m-1 words">
+              Highest Spellslot
+            </label>
+            <input
+              type="number"
+              placeholder="2"
+              onChange={handleFormInput}
+              id="highestSlot"
+              name="highestSlot"
+              className="m-1 custom-input words"
+              value={character.highestSlot}
+            ></input>
+          </div>
 
-        <SpellSlotInputs
-          handleChange={pushToNOSArr}
-          highestSlot={character.highestSlot}
-        />
-        <br></br>
-        <button onClick={editPlayerSubmit} className="m-1 words">
-          Save
-        </button>
-        {valErr.open && <PopUp color="danger" message={valErr.message} />}
-      </form>
-      {alert.show && (
-        <PopUp color={alert.color} message={alert.message}></PopUp>
-      )}
-      <CharacterView character={character} numberOfSlots={numberOfSlots} />
+          <SpellSlotInputs
+            handleChange={pushToNOSArr}
+            highestSlot={character.highestSlot}
+          />
+
+          <br></br>
+          <button onClick={editPlayerSubmit} className="m-1 words">
+            Save
+          </button>
+          {valErr.open && <PopUp color="danger" message={valErr.message} />}
+        </form>
+      </div>
+      
+      <div className="col">
+        {alert.show && (
+          <PopUp color={alert.color} message={alert.message}></PopUp>
+        )}
+        <CharacterView character={character} numberOfSlots={numberOfSlots} />
+      </div>
     </>
   );
 }
