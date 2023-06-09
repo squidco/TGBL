@@ -1,0 +1,15 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(145, 145, 145);
+}
+
+.App {
+  text-align: center;
+}
