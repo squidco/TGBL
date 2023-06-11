@@ -8,31 +8,31 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Characters from "./pages/Characters"
-import PlayerDisplay from "./pages/PlayerDisplay";
+import CharacterSelect from "./pages/CharacterSelect"
+import CharacterDisplay from "./pages/CharacterDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
 import AuthService from "./services/AuthService";
-import Edit from "./pages/Edit";
+import EditCharacter from "./pages/EditCharacter";
 
 function App() {
   return (
     <>
-      <Nav></Nav>
+      <Nav />
       <Switch>
         <Route exact path="/">
           <Landing />
         </Route>
         <Route path="/characters">
           {AuthService.loggedIn() ? (
-            <Characters />) : (
+            <CharacterSelect />) : (
             <Redirect to="/login" />
           )
           }
         </Route>
-        <Route exact path="/playerdisplay/:charactername">
+        <Route exact path="/characterdisplay/:charactername">
           {AuthService.loggedIn() ? (
-            <PlayerDisplay />) : (
+            <CharacterDisplay />) : (
             <Redirect to="/login" />
           )}
         </Route>
@@ -44,7 +44,7 @@ function App() {
         </Route>
         <Route exact path="/edit/:charactername">
         {AuthService.loggedIn() ? (
-            <Edit />) : (
+            <EditCharacter />) : (
             <Redirect to="/login" />
           )}
         </Route>

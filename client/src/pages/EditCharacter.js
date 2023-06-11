@@ -3,7 +3,7 @@ import "./style.css";
 import { Redirect, useParams } from "react-router-dom";
 import EditForm from "../components/EditForm";
 
-function Edit() {
+function EditCharacter() {
   let { charactername } = useParams();
 
   // You are trying to get the edit page working. Currently it could technically update a character but form fields don't populate with their previous values.
@@ -23,4 +23,4 @@ function Edit() {
   );
 }
 
-export default Edit;
+export default EditCharacter;

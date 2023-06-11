@@ -140,7 +140,7 @@ function EditForm({ characterName }) {
   return (
     <>
       <div className="col">
-        {redir.go && <Redirect push to={`/playerdisplay/${redir.to}`} />}
+        {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
         <form className="custom-form">
           <div className="form-group">
             <label htmlFor="playerName" className="m-1 words">

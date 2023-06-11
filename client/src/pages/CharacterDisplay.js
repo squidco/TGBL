@@ -5,7 +5,7 @@ import "./style.css";
 import AuthService from "../services/AuthService";
 import axios from "axios";
 
-function PlayerDisplay() {
+function CharacterDisplay() {
   //player name is grabbed from the url is lowercase because of how it is passed in via params
   let { charactername } = useParams();
 
@@ -62,4 +62,4 @@ function PlayerDisplay() {
   );
 }
 
-export default PlayerDisplay;
+export default CharacterDisplay;
