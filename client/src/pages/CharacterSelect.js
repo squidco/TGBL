@@ -6,7 +6,7 @@ import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
 import AuthService from "../services/AuthService";
 
-function Characters() {
+function CharacterSelect() {
   const [characterList, setCharacterList] = useState([]);
 
   const [redir, setRedir] = useState({ to: "" });
@@ -33,7 +33,7 @@ function Characters() {
   function handlePlayerClick(event) {
     event.preventDefault();
     setRedir({
-      to: "/playerdisplay/" + event.target.parentNode.dataset.character,
+      to: "/characterdisplay/" + event.target.parentNode.dataset.character,
     });
   }
 
@@ -88,4 +88,4 @@ function Characters() {
   );
 }
 
-export default Characters;
+export default CharacterSelect;
