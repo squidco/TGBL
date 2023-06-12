@@ -34,6 +34,10 @@ function CharacterSelect() {
   // Handles the user clicking on a character card to go to that character
   function handlePlayerClick(event) {
     event.preventDefault();
+    // Prevents player from being redirected by clicking the div with nothing in it
+    if (event.target.parentNode.dataset.character === undefined) {
+      return;
+    }
     setRedir({
       to: "/characterdisplay/" + event.target.parentNode.dataset.character,
     });
