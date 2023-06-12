@@ -12,7 +12,7 @@ function EditCharacter() {
   return (
     <div className={`mt-3 container op-1`}>
       <section className="row">
-        <div className="col-md-12">
+        <div className="col-sm-12">
           <h1 className="title">Edit your character's details.</h1>
         </div>
       </section>

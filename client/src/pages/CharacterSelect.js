@@ -61,12 +61,13 @@ function CharacterSelect() {
   return (
     <div className={`mt-3 container op-1`}>
       <section className="row">
-        <div className="col">
+        <div className="col-sm-6">
           <PlayerSearchForm />
           <br />
           <PlayerForm />
+          <br />
         </div>
-        <div className="col" onClick={handlePlayerClick}>
+        <div className="col-sm-6" onClick={handlePlayerClick}>
           <>
             {redir.to && <Redirect push to={redir.to} />}
             {characterList.map((el) => (

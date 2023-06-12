@@ -4,12 +4,12 @@ import SpellSlotDisplay from "./SpellSlotDisplay";
 
 // Renders the view with character infomation
 // Maybe I could call this character card
-export default function CharacterView({ character, numberOfSlots }) {
+export default function CharacterView({ character, numberOfSlots, className }) {
   return (
-    <div className="col">
-      <p className="title">
+    <div className={className}>
+      <h1 className="title">
         {character.playerName} | Level: {character.playerLevel}
-      </p>
+      </h1>
       <Dropdown title="Spellslots">
         <SpellSlotDisplay numberOfSlots={numberOfSlots} />
       </Dropdown>
