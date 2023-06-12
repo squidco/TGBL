@@ -5,6 +5,8 @@ import { Redirect } from "react-router-dom";
 import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
 import AuthService from "../services/AuthService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function CharacterSelect() {
   const [characterList, setCharacterList] = useState([]);
@@ -72,10 +74,12 @@ function CharacterSelect() {
             {redir.to && <Redirect push to={redir.to} />}
             {characterList.map((el) => (
               <div className="character-group" data-character={el.playerName}>
-                <button className="words" onClick={handleDelete}>
-                  X
+                <button className="words m-1" onClick={handleDelete}>
+                  <FontAwesomeIcon
+                    icon={icon({ name: "trash", style: "solid" })}
+                  />
                 </button>
-                <button className="words" onClick={handleEdit}>
+                <button className="words m-1" onClick={handleEdit}>
                   Edit
                 </button>
                 <h1 className="title">{el.playerName}</h1>

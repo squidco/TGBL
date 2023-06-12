@@ -23,7 +23,7 @@ function EditForm({ characterName }) {
 
   const [numberOfSlots, setNOS] = useState([]);
 
-// sets any alerts to the user in a pop up
+  // sets any alerts to the user in a pop up
   const [alert, setAlert] = useState({
     show: false,
     message: "",
@@ -122,7 +122,6 @@ function EditForm({ characterName }) {
           },
         }
       );
-      console.log(data);
       setAlert({
         show: true,
         message: "Changes successful",
@@ -130,6 +129,11 @@ function EditForm({ characterName }) {
       });
     } catch (err) {
       console.log(err);
+      setAlert({
+        show: true,
+        message: err,
+        color: "danger",
+      });
     }
   }
 
