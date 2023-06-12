@@ -5,6 +5,8 @@ import { Redirect } from "react-router-dom";
 import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
 import AuthService from "../services/AuthService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function CharacterSelect() {
   const [characterList, setCharacterList] = useState([]);
@@ -32,6 +34,10 @@ function CharacterSelect() {
   // Handles the user clicking on a character card to go to that character
   function handlePlayerClick(event) {
     event.preventDefault();
+    // Prevents player from being redirected by clicking the div with nothing in it
+    if (event.target.parentNode.dataset.character === undefined) {
+      return;
+    }
     setRedir({
       to: "/characterdisplay/" + event.target.parentNode.dataset.character,
     });
@@ -61,20 +67,23 @@ function CharacterSelect() {
   return (
     <div className={`mt-3 container op-1`}>
       <section className="row">
-        <div className="col">
+        <div className="col-sm-6">
           <PlayerSearchForm />
           <br />
           <PlayerForm />
+          <br />
         </div>
-        <div className="col" onClick={handlePlayerClick}>
+        <div className="col-sm-6" onClick={handlePlayerClick}>
           <>
             {redir.to && <Redirect push to={redir.to} />}
             {characterList.map((el) => (
               <div className="character-group" data-character={el.playerName}>
-                <button className="words" onClick={handleDelete}>
-                  X
+                <button className="words m-1" onClick={handleDelete}>
+                  <FontAwesomeIcon
+                    icon={icon({ name: "trash", style: "solid" })}
+                  />
                 </button>
-                <button className="words" onClick={handleEdit}>
+                <button className="words m-1" onClick={handleEdit}>
                   Edit
                 </button>
                 <h1 className="title">{el.playerName}</h1>

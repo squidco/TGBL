@@ -23,12 +23,7 @@ function EditForm({ characterName }) {
 
   const [numberOfSlots, setNOS] = useState([]);
 
-  //state for validation errors
-  const [valErr, setValErr] = useState({
-    open: false,
-    message: "",
-  });
-
+  // sets any alerts to the user in a pop up
   const [alert, setAlert] = useState({
     show: false,
     message: "",
@@ -92,21 +87,23 @@ function EditForm({ characterName }) {
     event.preventDefault();
     //If the player level is 0 or null
     if (character.playerLevel === null || character.playerLevel <= 0) {
-      setValErr({
-        open: true,
+      setAlert({
+        show: true,
+        color: "danger",
         message: "Please enter your character's level.",
       });
       return;
       //If the player highest spell slot is 0 or null
     } else if (character.highestSlot === null || character.highestSlot < 0) {
-      setValErr({
-        open: true,
+      setAlert({
+        show: true,
+        color: "danger",
         message: "Please enter the value of your highest level spell slot.",
       });
       return;
       //If it makes it through validation it will reset the Validation Error message to blank and close the pop up
     } else {
-      setValErr({ open: false, message: "" });
+      setAlert({ show: false, color: "", message: "" });
     }
     //axios call to update character
     console.log(character);
@@ -125,7 +122,6 @@ function EditForm({ characterName }) {
           },
         }
       );
-      console.log(data);
       setAlert({
         show: true,
         message: "Changes successful",
@@ -133,13 +129,18 @@ function EditForm({ characterName }) {
       });
     } catch (err) {
       console.log(err);
+      setAlert({
+        show: true,
+        message: err,
+        color: "danger",
+      });
     }
   }
 
   //the name form input is wrapped in a conditional render based off of if they are editing or creating a new character
   return (
     <>
-      <div className="col">
+      <div className="col-sm-6">
         {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
         <form className="custom-form">
           <div className="form-group">
@@ -196,16 +197,16 @@ function EditForm({ characterName }) {
           <button onClick={editPlayerSubmit} className="m-1 words">
             Save
           </button>
-          {valErr.open && <PopUp color="danger" message={valErr.message} />}
+          {alert.show && (
+            <PopUp color={alert.color} message={alert.message}></PopUp>
+          )}
         </form>
       </div>
-      
-      <div className="col">
-        {alert.show && (
-          <PopUp color={alert.color} message={alert.message}></PopUp>
-        )}
-        <CharacterView character={character} numberOfSlots={numberOfSlots} />
-      </div>
+      <CharacterView
+        className="col-sm-6"
+        character={character}
+        numberOfSlots={numberOfSlots}
+      />
     </>
   );
 }
