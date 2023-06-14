@@ -7,6 +7,7 @@ import axios from "axios";
 import AuthService from "../services/AuthService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import CharacterList from "../components/CharacterList";
 
 function CharacterSelect() {
   const [characterList, setCharacterList] = useState([]);
@@ -46,6 +47,7 @@ function CharacterSelect() {
   async function handleDelete(event) {
     event.preventDefault();
     event.stopPropagation();
+    console.log(event.target.parentNode);
     try {
       const { data } = await axios.delete(
         `/api/characters/${event.target.parentNode.dataset.character}`,
@@ -74,23 +76,8 @@ function CharacterSelect() {
           <br />
         </div>
         <div className="col-sm-6" onClick={handlePlayerClick}>
-          <>
-            {redir.to && <Redirect push to={redir.to} />}
-            {characterList.map((el) => (
-              <div className="character-group" data-character={el.playerName}>
-                <button className="words m-1" onClick={handleDelete}>
-                  <FontAwesomeIcon
-                    icon={icon({ name: "trash", style: "solid" })}
-                  />
-                </button>
-                <button className="words m-1" onClick={handleEdit}>
-                  Edit
-                </button>
-                <h1 className="title">{el.playerName}</h1>
-                <p className="words pl-3">Level: {el.playerLevel}</p>
-              </div>
-            ))}
-          </>
+          {redir.to && <Redirect push to={redir.to} />}
+          <CharacterList characterList={characterList} />
         </div>
       </section>
     </div>
