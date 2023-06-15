@@ -8,7 +8,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import CharacterSelect from "./pages/CharacterSelect"
+import CharacterSelect from "./pages/CharacterSelect";
 import CharacterDisplay from "./pages/CharacterDisplay";
 import ComponentTest from "./pages/ComponentTest";
 import LoginPage from "./pages/LoginPage";
@@ -17,7 +17,7 @@ import EditCharacter from "./pages/EditCharacter";
 
 function App() {
   return (
-    <>
+    <Router>
       <Nav />
       <Switch>
         <Route exact path="/">
@@ -25,14 +25,15 @@ function App() {
         </Route>
         <Route path="/characters">
           {AuthService.loggedIn() ? (
-            <CharacterSelect />) : (
+            <CharacterSelect />
+          ) : (
             <Redirect to="/login" />
-          )
-          }
+          )}
         </Route>
         <Route exact path="/characterdisplay/:charactername">
           {AuthService.loggedIn() ? (
-            <CharacterDisplay />) : (
+            <CharacterDisplay />
+          ) : (
             <Redirect to="/login" />
           )}
         </Route>
@@ -43,13 +44,14 @@ function App() {
           <LoginPage />
         </Route>
         <Route exact path="/edit/:charactername">
-        {AuthService.loggedIn() ? (
-            <EditCharacter />) : (
+          {AuthService.loggedIn() ? (
+            <EditCharacter />
+          ) : (
             <Redirect to="/login" />
           )}
         </Route>
       </Switch>
-    </>
+    </Router>
   );
 }
 
