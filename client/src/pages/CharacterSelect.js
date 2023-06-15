@@ -44,28 +44,6 @@ function CharacterSelect() {
     });
   }
 
-  async function handleDelete(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log(event.target.parentNode);
-    try {
-      const { data } = await axios.delete(
-        `/api/characters/${event.target.parentNode.dataset.character}`,
-        { headers: { authorization: AuthService.getToken() } }
-      );
-      setCharacterList(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  function handleEdit(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    setRedir({ to: "/edit/" + event.target.parentNode.dataset.character });
-  }
-
   return (
     <div className={`mt-3 container op-1`}>
       <section className="row">
