@@ -41,7 +41,7 @@ function App() {
           <ComponentTest />
         </Route>
         <Route exact path="/login">
-          <LoginPage />
+          {!AuthService.loggedIn() ? <LoginPage /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/edit/:charactername">
           {AuthService.loggedIn() ? (
