@@ -3,12 +3,12 @@ import SpellSlotTracker from "../SpellSlotTracker";
 import "./style.css";
 
 function SpellSlotDisplay({ numberOfSlots }) {
+  // [{id: 1, slot: 3}]
+
   return numberOfSlots.map((slotObject) => (
     <div className={"container"} key={slotObject.id}>
       <label className="m-0 words">{`Level ${slotObject.id} Slots`}</label>
-      <div className={`slotDisplayContainer`}>
-        <SpellSlotTracker slotObject={slotObject} />
-      </div>
+      <SpellSlotTracker slotObject={slotObject} />
     </div>
   ));
 }

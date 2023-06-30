@@ -16,39 +16,47 @@ import AuthService from "./services/AuthService";
 import EditCharacter from "./pages/EditCharacter";
 
 function App() {
+  function protectedRoute(loggedInComp, defaultComp) {
+    if (AuthService.loggedIn()) {
+      return loggedInComp;
+    } else {
+      return defaultComp;
+    }
+  }
+
   return (
     <>
       <Nav />
       <Switch>
         <Route exact path="/">
-          <Landing />
+          {protectedRoute(<CharacterSelect/>, <Landing/>)}
+          {/* {AuthService.loggedIn() ? <CharacterSelect /> : <Landing />} */}
         </Route>
-        <Route path="/characters">
-          {AuthService.loggedIn() ? (
-            <CharacterSelect />
-          ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
+        {/* <Route path="/characters">
+          {protectedRoute(<CharacterSelect/>, <Redirect to="/login"/>)}
+        </Route> */}
         <Route exact path="/characterdisplay/:charactername">
-          {AuthService.loggedIn() ? (
+          {protectedRoute(<CharacterDisplay/>, <Redirect to="/login"/>)}
+          {/* {AuthService.loggedIn() ? (
             <CharacterDisplay />
           ) : (
             <Redirect to="/login" />
-          )}
+          )} */}
         </Route>
         <Route exact path="/componenttest">
           <ComponentTest />
         </Route>
         <Route exact path="/login">
-          {!AuthService.loggedIn() ? <LoginPage /> : <Redirect to="/" />}
+          {protectedRoute(<Redirect to="/"/>, <LoginPage/>)}
+          {/* {!AuthService.loggedIn() ? <LoginPage /> : <Redirect to="/" />} */}
         </Route>
         <Route exact path="/edit/:charactername">
-          {AuthService.loggedIn() ? (
+          {protectedRoute(<EditCharacter/>, <Redirect to="/login"/>)}
+          {/* {AuthService.loggedIn() ? (
             <EditCharacter />
           ) : (
             <Redirect to="/login" />
-          )}
+          )} */}
         </Route>
       </Switch>
     </>
