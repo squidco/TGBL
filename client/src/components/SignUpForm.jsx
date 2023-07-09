@@ -60,7 +60,7 @@ export default function SignUpForm() {
 
   return (
     <>
-      {redir.to && <Redirect push to={`/characters`} />}
+      {redir.to && <Redirect push to={`/`} />}
       <form className="form-signin">
         <div className="form-group">
           <label htmlFor="email" className="m-1 words">
