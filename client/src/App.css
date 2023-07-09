@@ -13,3 +13,105 @@ body {
 .App {
   text-align: center;
 }
+
+/* Elements */
+
+button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: unit-rounded, sans-serif;
+  padding: 0.5vh 1vw;
+}
+
+a {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: unit-rounded, sans-serif;
+  padding: 0.5vh 1vw;
+}
+
+/* Text Styling */
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin: auto;
+  font-family: "Germania One", cursive;
+  color: rgb(0, 0, 0);
+}
+
+.words {
+  font-family: unit-rounded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+}
+
+/* Hidden and Opacity */
+
+.hidden {
+  display: none;
+}
+
+.op-1 {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.op-0 {
+  opacity: 0;
+}
+
+/*  LOGIN/SIGNUP COMPONENTS */
+
+.form-signin {
+  max-width: 330px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login-container {
+  height: 100%;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+}
+
+/* CHARACTERS PAGE */
+
+.character-group {
+  background-color: lightgray;
+  border: silver solid;
+  border-radius: 0.5em;
+}
+
+/* DROPDOWN STYLES */
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px black solid;
+  padding: 4px;
+}
+
+.dropdown-button {
+  background-color: rgb(145, 145, 145);
+  color: black;
+  transition: rotate 0.5s;
+  rotate: 0deg;
+}
+
+.dropdown-toggle {
+  rotate: 90deg;
+}
