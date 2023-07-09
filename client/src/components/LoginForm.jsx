@@ -56,7 +56,7 @@ export default function LoginForm() {
 
   return (
     <>
-      {redir.to && <Redirect push to={`/characters`} />}
+      {redir.to && <Redirect push to={`/`} />}
       <form className="form-signin">
         <div className="form-group">
           <label htmlFor="email" className="m-1 words">
