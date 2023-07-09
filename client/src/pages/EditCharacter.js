@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "../App.css";
 import { Redirect, useParams } from "react-router-dom";
 import EditForm from "../components/EditForm";
 

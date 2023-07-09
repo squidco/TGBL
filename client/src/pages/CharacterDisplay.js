@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
-import "./style.css";
+import "../App.css";
 import AuthService from "../services/AuthService";
 import axios from "axios";
 
