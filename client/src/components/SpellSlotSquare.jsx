@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "../styles/SpellSlotSquare.css";
 
 function SpellSlotSquare(props) {
   //State for the fading animations on the squares
