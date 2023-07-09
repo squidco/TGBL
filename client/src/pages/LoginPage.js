@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
-import "./style.css"
+import "../App.css"
 
 
 //I know the forms should be in their own components

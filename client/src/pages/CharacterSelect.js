@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PlayerForm from "../components/PlayerForm";
-import "./style.css";
+import "../App.css";
 import { Redirect } from "react-router-dom";
 import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
