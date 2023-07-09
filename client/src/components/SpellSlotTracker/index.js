@@ -1,19 +1,20 @@
 import React from "react";
 import SpellSlotSquare from "../SpellSlotSquare";
 
-function SpellSlotTracker(props) {
-    var tempElArr = [];
-    for (let i = 0; i < props.slotObject.slots; i++) {
-        tempElArr.push(i)
-    }
+function SpellSlotTracker({ slotObject }) {
+  // {id: 3, slot:3}
+  var squareArray = [];
+  for (let index = 0; index < slotObject.slots; index++) {
+    squareArray.push(<SpellSlotSquare />);
+  }
 
-    return (
-        <>
-            {tempElArr.map((item) => (
-                <SpellSlotSquare idAndKey={item} />
-            ))}
-        </>
-    )
+  return (
+    <div className="slotDisplayContainer" style={{ width: "100%" }}>
+      {squareArray.map((sqaure) => {
+        return sqaure
+      })}
+    </div>
+  );
 }
 
-export default SpellSlotTracker
+export default SpellSlotTracker;
