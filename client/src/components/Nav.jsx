@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
-import AuthService from "../../services/AuthService";
+import "../styles/Nav.css";
+import AuthService from "../services/AuthService";
 import { Link } from "react-router-dom";
 
 function Nav() {

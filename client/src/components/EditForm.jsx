@@ -4,8 +4,8 @@ import { Redirect } from "react-router-dom";
 import SpellSlotInputs from "./SpellSlotInputs";
 import axios from "axios";
 import AuthService from "../services/AuthService";
-import "./PlayerForm/style.css";
-import "../pages/style.css";
+import "../styles/PlayerForm.css";
+import "../App.css";
 import CharacterView from "./CharacterView";
 
 function EditForm({ characterName }) {

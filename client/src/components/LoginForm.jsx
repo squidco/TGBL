@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import AuthService from "../services/AuthService";
-import PopUp from "./PopUp";
-import "../pages/style.css";
+import PopUp from "./PopUp.jsx";
+import "../App.css";
 
 export default function LoginForm() {
   //state for redirecting to a new page

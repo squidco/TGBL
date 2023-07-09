@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AuthService from "../services/AuthService";
 import { Link } from "react-router-dom";
-import "./style.css";
+import "../App.css";
 
 function Landing() {
   const [loggedIn, setLoggedIn] = useState(AuthService.loggedIn());

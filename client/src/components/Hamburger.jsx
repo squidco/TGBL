@@ -1,5 +1,5 @@
 import React from "react";
-import HamburgerLink from "../HamburgerLink/index";
+import HamburgerLink from "./HamburgerLink/index";
 import "./style.css";
 
 function Hamburger({ hamburgerState }) {

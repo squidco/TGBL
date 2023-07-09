@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios"
-import AuthService from "../../services/AuthService";
-import PopUp from "../PopUp";
-import "./style.css"
-import "../../pages/style.css"
+import AuthService from "../services/AuthService";
+import PopUp from "./PopUp";
+import "../styles/PlayerSearchForm.css"
 
 function PlayerSearchForm() {
     //state for redirecting to a new page
