@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import SpellSlotTracker from "./SpellSlotTracker";
-import "./style.css";
+import "../styles/SpellSlotDisplay.css";
 
 function SpellSlotDisplay({ numberOfSlots }) {
   // [{id: 1, slot: 3}]

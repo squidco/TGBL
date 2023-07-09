@@ -4,8 +4,7 @@ import { Redirect } from "react-router-dom";
 import SpellSlotInputs from "./SpellSlotInputs";
 import axios from "axios";
 import AuthService from "../services/AuthService";
-import "./style.css"
-import "../../pages/style.css"
+import "../styles/PlayerForm.css"
 
 function PlayerForm(props) {
     const [redir, setRedir] = useState({ go: false, to: "" })
