@@ -1,5 +1,5 @@
 import React from "react";
-import BasicOption from "../BasicOption";
+import BasicOption from "./BasicOption";
 // import "./style.css";
 
 // Accepts an array of strings or a number

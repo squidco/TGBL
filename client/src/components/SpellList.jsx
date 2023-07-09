@@ -1,5 +1,5 @@
 import React from "react";
-import spellListItem from "../spellListItem/index.js";
+import spellListItem from "./spellListItem/index.js";
 import "./style.css";
 
 function spellList({ listOfSpells }) {

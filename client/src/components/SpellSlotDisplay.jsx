@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SpellSlotTracker from "../SpellSlotTracker";
+import SpellSlotTracker from "./SpellSlotTracker";
 import "./style.css";
 
 function SpellSlotDisplay({ numberOfSlots }) {

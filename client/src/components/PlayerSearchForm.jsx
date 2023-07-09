@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios"
-import AuthService from "../../services/AuthService";
-import PopUp from "../PopUp";
+import AuthService from "../services/AuthService";
+import PopUp from "./PopUp";
 import "./style.css"
 import "../../pages/style.css"
 

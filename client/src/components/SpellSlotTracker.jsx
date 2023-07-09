@@ -1,5 +1,5 @@
 import React from "react";
-import SpellSlotSquare from "../SpellSlotSquare";
+import SpellSlotSquare from "./SpellSlotSquare";
 
 function SpellSlotTracker({ slotObject }) {
   // {id: 3, slot:3}

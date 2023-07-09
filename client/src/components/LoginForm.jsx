@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import AuthService from "../services/AuthService";
-import PopUp from "./PopUp";
+import PopUp from "./Popup";
 import "../pages/style.css";
 
 export default function LoginForm() {
