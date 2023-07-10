@@ -11,22 +11,20 @@ function Nav() {
   }, [window.location.href]);
 
   return (
-    <nav className="bar">
-      <div className="col-md-9">
+    <nav>
+      <div className="nav-links">
         <Link className="logo" to="/">
           TGBL
         </Link>
+        {loggedIn ? <Link to={"/"}>Characters</Link> : <></>}
+      </div>
+      <div>
         {loggedIn ? (
-          <>
-            <button className="words" onClick={AuthService.logout}>
-              Logout
-            </button>
-            <Link to={"/characters"}>Characters</Link>
-          </>
+          <button className="words" onClick={AuthService.logout}>
+            Logout
+          </button>
         ) : (
-          <>
-            <Link to={"/login"}>Login</Link>
-          </>
+          <Link to={"/login"}>Login</Link>
         )}
       </div>
     </nav>
