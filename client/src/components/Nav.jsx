@@ -18,7 +18,7 @@ function Nav() {
         </Link>
         {loggedIn ? <Link to={"/"}>Characters</Link> : <></>}
       </div>
-      <div>
+      <div className="login-out">
         {loggedIn ? (
           <button className="words" onClick={AuthService.logout}>
             Logout
