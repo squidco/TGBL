@@ -1,5 +1,7 @@
 # TGBL
-A spell slot tracker for DnD.
+A spell slot tracker for DnD. 
+
+[Deployed Site](https://thegoodboylist.herokuapp.com/)
 
 ## Description
 TGBL is a spell slot tracker for DnD that is simple to use. You can create your character and add their spell slots then use a simple toggle to say if they have been expended or not. Currently the site functions on client side storage, however, a backend exists for users and their characters which needs front-end integration before it becomes fully operational. If you want to use the client side storage version you can visit the deployed site link or use the heroku-stable-deploy branch locally.
