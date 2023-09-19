@@ -15,7 +15,7 @@ function EditForm({ characterName }) {
   // Instead of setting null values I set other default values because
   // It was messing up the controlled form
   const [character, setCharacter] = useState({
-    playerName: "",
+    characterName: "",
     playerLevel: 1,
     highestSlot: 1,
     numberOfSlots: [],
@@ -144,17 +144,17 @@ function EditForm({ characterName }) {
         {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
         <form className="custom-form">
           <div className="form-group">
-            <label htmlFor="playerName" className="m-1 words">
+            <label htmlFor="characterName" className="m-1 words">
               Name
             </label>
             <input
               type="text"
               placeholder="Greeblebottom"
               onChange={handleFormInput}
-              id="playerName"
-              name="playerName"
+              id="characterName"
+              name="characterName"
               className="m-1 custom-input words"
-              value={character.playerName}
+              value={character.characterName}
             ></input>
           </div>
 
