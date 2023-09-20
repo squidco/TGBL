@@ -10,6 +10,7 @@ const CharacterSchema = new mongoose.Schema({
     lowercase: true,
   },
   characterLevel: Number,
+  abilityScores: [Number],
   highestSlot: Number,
   armorClass: Number,
   inventory: [Object],
