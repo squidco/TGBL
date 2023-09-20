@@ -16,7 +16,7 @@ export default function CharacterCard({ character, setCharacters }) {
 
     try {
       const { data } = await axios.delete(
-        `/api/characters/${character.playerName}`,
+        `/api/characters/${character.characterName}`,
         { headers: { authorization: AuthService.getToken() } }
       );
       setCharacters(data);
@@ -28,17 +28,17 @@ export default function CharacterCard({ character, setCharacters }) {
   function handleEdit(event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log("EDIT BUTTON", character.playerName);
-    setRedir({ to: "/edit/" + character.playerName });
+    console.log("EDIT BUTTON", character.characterName);
+    setRedir({ to: "/edit/" + character.characterName });
   }
 
   return (
     <>
       {redir.to && <Redirect push to={redir.to} />}
-      <div className="character-group" data-character={character.playerName}>
+      <div className="character-group" data-character={character.characterName}>
         <button
           className="words m-1"
-          data-character={character.playerName}
+          data-character={character.characterName}
           onClick={handleDelete}
         >
           <FontAwesomeIcon icon={icon({ name: "trash", style: "solid" })} />
@@ -46,7 +46,7 @@ export default function CharacterCard({ character, setCharacters }) {
         <button className="words m-1" onClick={handleEdit}>
           Edit
         </button>
-        <h1 className="title">{character.playerName}</h1>
+        <h1 className="title">{character.characterName}</h1>
         <p className="words pl-3">Level: {character.playerLevel}</p>
       </div>
     </>

@@ -1,7 +1,5 @@
 const db = require("../models")
 
-//Needs CRUD operations
-
 module.exports = {
     createCharacter: async function (req, res) {
         //uses req.body to add a new character to the characters array of a user
@@ -23,7 +21,7 @@ module.exports = {
             const user = await db.Users.findById(req.user._id)
             const charactersArr = user.characters
             charactersArr.forEach(element => {
-                if (req.params.characterName === element.playerName) {
+                if (req.params.characterName === element.characterName) {
                     res.json(element)
                 } 
             });
@@ -35,7 +33,7 @@ module.exports = {
         // Just have to implement it
 
         // My attempt at searching for a specific subdocument based off a property that isn't _id
-        // You can do user.characters.id(idOfSubDocGoesHere) but I wanted to search based off of the playerName property
+        // You can do user.characters.id(idOfSubDocGoesHere) but I wanted to search based off of the characterName property
         // try {
         //     const user = await db.Users.findOne({ _id: req.user._id }, function (err, user) {
         //         console.log("INSIDE QUERY", user)
@@ -56,11 +54,11 @@ module.exports = {
         }
     },
     deleteCharacter: async function (req, res) {
-        //uses req.params.characterName to delete a character. Note that in the character subdoc it is referencing playerName
+        //uses req.params.characterName to delete a character. Note that in the character subdoc it is referencing characterName
         try {
             const user = await db.Users.findOneAndUpdate(
                 { _id: req.user._id },
-                { $pull: { characters: { playerName: req.params.characterName } } },
+                { $pull: { characters: { characterName: req.params.characterName } } },
                 { new: true, useFindAndModify: false })
             res.json(user.characters)
         } catch (error) {
@@ -70,7 +68,7 @@ module.exports = {
     updateCharacter: async function (req, res) {
         try {
             const user = await db.Users.findOneAndUpdate(
-                { _id: req.user._id, "characters.playerName": req.params.characterName },
+                { _id: req.user._id, "characters.characterName": req.params.characterName },
                 { $set: { "characters.$": req.body } },
                 {new: true, useFindAndModify: false}
             )

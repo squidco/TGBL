@@ -11,7 +11,7 @@ function PlayerForm(props) {
 
     //State for tracking the amount of player spell slots and level
     const [player, setPlayer] = useState({
-        playerName: "",
+        characterName: "",
         playerLevel: null,
         highestSlot: null,
         numberOfSlots: []
@@ -27,7 +27,7 @@ function PlayerForm(props) {
     useEffect(() => {
         if (props.character) {
             setPlayer({
-                playerName: props.player.playerName,
+                characterName: props.player.characterName,
                 playerLevel: props.player.playerLevel,
                 highestSlot: props.player.highestSlot,
                 numberOfSlots: []
@@ -75,12 +75,12 @@ function PlayerForm(props) {
     async function handleNewPlayer(event) {
         event.preventDefault();
         //If player name is blank
-        if (player.playerName === "") {
+        if (player.characterName === "") {
             setValErr({ open: true, message: "Please enter a name." })
             return
             //If the player name is already taken
             //Need to change this to check the database
-        } else if (localStorage.getItem(player.playerName.toLowerCase())) {
+        } else if (localStorage.getItem(player.characterName.toLowerCase())) {
             setValErr({ open: true, message: "This player name is already taken. Please try another." })
             return
             //If the player level is 0 or null
@@ -103,7 +103,7 @@ function PlayerForm(props) {
                 }
             })
             console.log(data)
-            setRedir({ go: true, to: player.playerName.toLowerCase() })
+            setRedir({ go: true, to: player.characterName.toLowerCase() })
         } catch (err) {
             console.log(err)
         }
@@ -125,7 +125,7 @@ function PlayerForm(props) {
             setValErr({ open: false, message: "" })
         }
         //because we are updating the existing player we will pass in the name we receive from the props
-        localStorage.setItem(player.playerName.toLowerCase(), JSON.stringify(player));
+        localStorage.setItem(player.characterName.toLowerCase(), JSON.stringify(player));
         window.location.reload()
     }
 
@@ -136,13 +136,13 @@ function PlayerForm(props) {
             <form className="custom-form">
                 {!props.edit && <>
                     <div className="form-group">
-                        <label htmlFor="playerName" className="m-1 words">Name</label>
+                        <label htmlFor="characterName" className="m-1 words">Name</label>
                         <input
                             type="text"
                             placeholder="Greeblebottom"
                             onChange={handleFormInput}
-                            id="playerName"
-                            name="playerName"
+                            id="characterName"
+                            name="characterName"
                             className="m-1 custom-input words"
                         ></input>
                     </div>

@@ -9,7 +9,7 @@ export default function CharacterView({ character, numberOfSlots, className }) {
   return (
     <div className={className}>
       <h1 className="title">
-        {character.playerName} | Level: {character.playerLevel}
+        {character.characterName} | Level: {character.playerLevel}
       </h1>
       <Dropdown title="Spellslots">
         <SpellSlotDisplay numberOfSlots={numberOfSlots} />
