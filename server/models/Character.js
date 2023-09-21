@@ -7,7 +7,6 @@ const CharacterSchema = new mongoose.Schema({
     type: String,
     unique: true,
     trim: true,
-    lowercase: true,
   },
   abilityScores: [
     {
