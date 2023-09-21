@@ -9,9 +9,19 @@ const CharacterSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
-  characterLevel: Number,
-  characterClass: [String],
-  abilityScores: [Number],
+  abilityScores: [
+    {
+      name: String,
+      score: Number,
+    }
+  ],
+  characterLevel: { type: Number, default: 1 },
+  classes: [
+    {
+      name: { type: String, default: "Fighter" },
+      level: { type: Number, default: 1 },
+    },
+  ],
   highestSlot: Number,
   armorClass: Number,
   inventory: [Object],
@@ -20,7 +30,7 @@ const CharacterSchema = new mongoose.Schema({
     fails: { type: Number, min: 0, max: 3 },
     successes: { type: Number, min: 0, max: 3 },
   },
-  proficiencyBonus: { type: Number, default: 2},
+  proficiencyBonus: { type: Number, default: 2 },
   numberOfSlots: [
     {
       id: Number,
