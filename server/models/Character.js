@@ -12,7 +12,20 @@ const CharacterSchema = new mongoose.Schema({
     {
       name: String,
       score: Number,
-    }
+      isProficient: { type: Boolean, default: false },
+    },
+  ],
+  background: String,
+  race: String,
+  alignment: String,
+  experience: Number,
+  inspiration: { type: Boolean, default: false },
+  skills: [
+    {
+      name: String,
+      ability: String,
+      isProficient: { type: Boolean, default: false },
+    },
   ],
   characterLevel: { type: Number, default: 1 },
   classes: [
@@ -56,6 +69,16 @@ const CharacterSchema = new mongoose.Schema({
     levelEight: [SpellSchema],
     levelNine: [SpellSchema],
   },
+});
+
+CharacterSchema.pre("save", function (next) {
+  console.log(this);
+  this.skills = [ {
+    name: "Athletics",
+    ability: this.abilityScores[0].name,
+    isProficient: false
+  }]
+  next();
 });
 
 module.exports = CharacterSchema;
