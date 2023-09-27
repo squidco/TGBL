@@ -71,14 +71,4 @@ const CharacterSchema = new mongoose.Schema({
   },
 });
 
-CharacterSchema.pre("save", function (next) {
-  console.log(this);
-  this.skills = [ {
-    name: "Athletics",
-    ability: this.abilityScores[0].name,
-    isProficient: false
-  }]
-  next();
-});
-
 module.exports = CharacterSchema;
