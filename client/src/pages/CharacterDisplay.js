@@ -10,7 +10,7 @@ function CharacterDisplay() {
   let { charactername } = useParams();
 
   const [character, setCharacter] = useState({
-    playerName: "",
+    characterName: "",
     playerLevel: 1,
     highestSlot: 0,
     numberOfSlots: [],
@@ -51,7 +51,7 @@ function CharacterDisplay() {
         <div className="col-md-12">
           <button onClick={handleEdit}>Edit</button>
           <p className="title">
-            {character.playerName} | Level: {character.playerLevel}
+            {character.characterName} | Level: {character.playerLevel}
           </p>
         </div>
       </div>

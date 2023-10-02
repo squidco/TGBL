@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
-//package to encrypt password
 const bcrypt = require("bcrypt")
 
-//character subdocument
+// Import Character subdocument
 const characterSchema = require("./Character")
 
 const UserSchema = new mongoose.Schema({

@@ -12,14 +12,15 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "express-rate-limit": "^6.7.0",
+    "jest": "^29.6.4",
     "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^3.1.2",
+    "mongodb-memory-server": "^6.2.1",
     "mongoose": "^5.9.28",
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "magic": "cd scripts && node magic.js",
-    "test-seed": "cd scripts && node seedDB.js",
+    "test": "jest --testEnvironment=node --runInBand --detectOpenHandles ./tests",
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
