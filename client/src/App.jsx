@@ -1,18 +1,18 @@
 import React from "react";
 import Nav from "./components/Nav.jsx";
 import "./App.css";
-import Landing from "./pages/Landing.js";
+import Landing from "./pages/Landing.jsx";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import CharacterSelect from "./pages/CharacterSelect";
-import CharacterDisplay from "./pages/CharacterDisplay";
-import LoginPage from "./pages/LoginPage";
-import AuthService from "./services/AuthService";
-import EditCharacter from "./pages/EditCharacter";
+import CharacterSelect from "./pages/CharacterSelect.jsx";
+import CharacterDisplay from "./pages/CharacterDisplay.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import AuthService from "./services/AuthService.js";
+import EditCharacter from "./pages/EditCharacter.jsx";
 
 function App() {
   function protectedRoute(loggedInComp, defaultComp) {
