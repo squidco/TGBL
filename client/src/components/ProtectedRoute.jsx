@@ -1,5 +1,5 @@
 import React from 'react'
-import { redirect } from 'react-router-dom'
+import { redirect, Route, Routes } from 'react-router-dom'
 
 const routeGuard = async () => {
     const token = document.cookie
@@ -25,6 +25,7 @@ const routeGuard = async () => {
 
 function ProtectedRoute({children, ...rest}) {
     return (
+      <Routes>
         <Route
           {...rest}
           render={() => {
@@ -35,7 +36,8 @@ function ProtectedRoute({children, ...rest}) {
             );
           }}
         />
-      );
+      </Routes>  
+    );
 }
 
 export default ProtectedRoute
