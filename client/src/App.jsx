@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import React from "react";
+import Nav from "./components/Nav.jsx";
+import "./App.css";
+import Landing from "./pages/Landing.jsx";
+import {
+  // BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import CharacterSelect from "./pages/CharacterSelect.jsx";
+import CharacterDisplay from "./pages/CharacterDisplay.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import AuthService from "./services/AuthService.js";
+import EditCharacter from "./pages/EditCharacter.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  function protectedRoute(loggedInComp, defaultComp) {
+    if (AuthService.loggedIn()) {
+      return loggedInComp;
+    } else {
+      return defaultComp;
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Nav />
+      <Switch>
+        <Route exact path="/">
+          {protectedRoute(<CharacterSelect />, <Landing />)}
+          {/* {AuthService.loggedIn() ? <CharacterSelect /> : <Landing />} */}
+        </Route>
+        {/* <Route path="/characters">
+          {protectedRoute(<CharacterSelect/>, <Redirect to="/login"/>)}
+        </Route> */}
+        <Route exact path="/characterdisplay/:charactername">
+          {protectedRoute(<CharacterDisplay />, <Redirect to="/login" />)}
+          {/* {AuthService.loggedIn() ? (
+            <CharacterDisplay />
+          ) : (
+            <Redirect to="/login" />
+          )} */}
+        </Route>
+        <Route exact path="/login">
+          {protectedRoute(<Redirect to="/" />, <LoginPage />)}
+          {/* {!AuthService.loggedIn() ? <LoginPage /> : <Redirect to="/" />} */}
+        </Route>
+        <Route exact path="/edit/:charactername">
+          {protectedRoute(<EditCharacter />, <Redirect to="/login" />)}
+          {/* {AuthService.loggedIn() ? (
+            <EditCharacter />
+          ) : (
+            <Redirect to="/login" />
+          )} */}
+        </Route>
+      </Switch>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

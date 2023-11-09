@@ -1,0 +1,9 @@
+.custom-input{
+    display: block;
+}
+
+.custom-form{
+    border: solid 2px rgb(192, 192, 192);
+    border-radius: .5rem;
+    padding: .5rem;
+}
