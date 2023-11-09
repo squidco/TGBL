@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, redirect } from "react-router-dom";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "../App.css";
 import AuthService from "../services/AuthService";

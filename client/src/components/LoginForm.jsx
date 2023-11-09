@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import PopUp from "./PopUp.jsx";
 import "../App.css";
@@ -56,7 +56,7 @@ export default function LoginForm() {
 
   return (
     <>
-      {redir.to && <Redirect push to={`/`} />}
+      {redir.to && <redirect push to={`/`} />}
       <form className="form-signin">
         <div className="form-group">
           <label htmlFor="email" className="m-1 words">

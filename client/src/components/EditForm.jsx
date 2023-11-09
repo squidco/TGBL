@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PopUp from "./PopUp";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import SpellSlotInputs from "./SpellSlotInputs";
 import axios from "axios";
 import AuthService from "../services/AuthService";
@@ -141,7 +141,7 @@ function EditForm({ characterName }) {
   return (
     <>
       <div className="col-sm-6">
-        {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
+        {redir.go && <redirect push to={`/characterdisplay/${redir.to}`} />}
         <form className="custom-form">
           <div className="form-group">
             <label htmlFor="characterName" className="m-1 words">

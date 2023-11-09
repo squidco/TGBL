@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import { Redirect, useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import EditForm from "../components/EditForm";
 
 function EditCharacter() {

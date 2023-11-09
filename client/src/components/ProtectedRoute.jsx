@@ -1,4 +1,5 @@
 import React from 'react'
+import { redirect } from 'react-router-dom'
 
 const routeGuard = async () => {
     const token = document.cookie
@@ -30,7 +31,7 @@ function ProtectedRoute({children, ...rest}) {
             return routeGuard() === true ? (
               children
             ) : (
-              <Redirect to="/login" />
+              <redirect to="/login" />
             );
           }}
         />

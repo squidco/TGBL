@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, redirect } from "react-router-dom";
 import SpellSlotDisplay from "../components/SpellSlotDisplay";
 import "../App.css";
 import AuthService from "../services/AuthService";
@@ -45,7 +45,7 @@ function CharacterDisplay() {
 
   return (
     <div className={`mt-3 container op-1`}>
-      {redir.to && <Redirect push to={redir.to} />}
+      {redir.to && <redirect push to={redir.to} />}
 
       <div className="row">
         <div className="col-md-12">

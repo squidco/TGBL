@@ -4,7 +4,7 @@ import AuthService from "../services/AuthService";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 export default function CharacterCard({ character, setCharacters }) {
   //redirect state
@@ -34,7 +34,7 @@ export default function CharacterCard({ character, setCharacters }) {
 
   return (
     <>
-      {redir.to && <Redirect push to={redir.to} />}
+      {redir.to && <redirect push to={redir.to} />}
       <div className="character-group" data-character={character.characterName}>
         <button
           className="words m-1"
