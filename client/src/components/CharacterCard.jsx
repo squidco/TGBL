@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import AuthService from "../services/AuthService";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 
