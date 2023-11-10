@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function Dropdown({ title, children }) {
   const [dropdown, setDropdown] = useState(false);
