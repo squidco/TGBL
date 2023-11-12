@@ -8,6 +8,7 @@ const apiRoutes = require("./routes/index");
 const RateLimit = require("express-rate-limit");
 const { clog } = require("./utils/clog");
 
+
 const limiter = RateLimit({
   windowMs: 1 * 60 * 1000,
   message: "Too many requests from this IP. Please try again in a minute.",

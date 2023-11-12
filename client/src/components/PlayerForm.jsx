@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PopUp from "./PopUp";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import SpellSlotInputs from "./SpellSlotInputs";
 import axios from "axios";
 import AuthService from "../services/AuthService";
@@ -132,7 +132,7 @@ function PlayerForm(props) {
     //the name form input is wrapped in a conditional render based off of if they are editing or creating a new character
     return (
         <>
-            {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
+            {redir.go && <redirect push to={`/characterdisplay/${redir.to}`} />}
             <form className="custom-form">
                 {!props.edit && <>
                     <div className="form-group">

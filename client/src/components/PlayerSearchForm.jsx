@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import axios from "axios"
 import AuthService from "../services/AuthService";
 import PopUp from "./PopUp";
@@ -44,7 +44,7 @@ function PlayerSearchForm() {
 
     return (
         <>
-            {redir.go && <Redirect push to={`/characterdisplay/${redir.to}`} />}
+            {redir.go && <redirect push to={`/characterdisplay/${redir.to}`} />}
             <form className="custom-form">
                 <div className="form-group">
                     <label htmlFor="search" className="m-1 words">Search for your character</label>

@@ -1,12 +1,12 @@
-import React from "react";
+// import React from "react";
 import Nav from "./components/Nav.jsx";
 import "./App.css";
 import Landing from "./pages/Landing.jsx";
 import {
-  BrowserRouter as Router,
-  Switch,
+  // BrowserRouter as Router,
+  Routes,
   Route,
-  Redirect,
+  redirect,
 } from "react-router-dom";
 import CharacterSelect from "./pages/CharacterSelect.jsx";
 import CharacterDisplay from "./pages/CharacterDisplay.jsx";
@@ -17,8 +17,10 @@ import EditCharacter from "./pages/EditCharacter.jsx";
 function App() {
   function protectedRoute(loggedInComp, defaultComp) {
     if (AuthService.loggedIn()) {
+      console.log("Logged In")
       return loggedInComp;
     } else {
+      console.log("Not logged in")
       return defaultComp;
     }
   }
@@ -26,35 +28,12 @@ function App() {
   return (
     <>
       <Nav />
-      <Switch>
-        <Route exact path="/">
-          {protectedRoute(<CharacterSelect />, <Landing />)}
-          {/* {AuthService.loggedIn() ? <CharacterSelect /> : <Landing />} */}
-        </Route>
-        {/* <Route path="/characters">
-          {protectedRoute(<CharacterSelect/>, <Redirect to="/login"/>)}
-        </Route> */}
-        <Route exact path="/characterdisplay/:charactername">
-          {protectedRoute(<CharacterDisplay />, <Redirect to="/login" />)}
-          {/* {AuthService.loggedIn() ? (
-            <CharacterDisplay />
-          ) : (
-            <Redirect to="/login" />
-          )} */}
-        </Route>
-        <Route exact path="/login">
-          {protectedRoute(<Redirect to="/" />, <LoginPage />)}
-          {/* {!AuthService.loggedIn() ? <LoginPage /> : <Redirect to="/" />} */}
-        </Route>
-        <Route exact path="/edit/:charactername">
-          {protectedRoute(<EditCharacter />, <Redirect to="/login" />)}
-          {/* {AuthService.loggedIn() ? (
-            <EditCharacter />
-          ) : (
-            <Redirect to="/login" />
-          )} */}
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={protectedRoute(<CharacterSelect />, <Landing />)} />
+        <Route exact path="/characterdisplay/:charactername" element={protectedRoute(<CharacterDisplay />, <redirect to="/login" />)} />
+        <Route exact path="/login" element={protectedRoute(<redirect to="/" />, <LoginPage />)}/>
+        <Route exact path="/edit/:charactername" element={protectedRoute(<EditCharacter />, <redirect to="/login" />)}/>
+      </Routes>
     </>
   );
 }

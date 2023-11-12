@@ -1,4 +1,5 @@
 import React from 'react'
+import { redirect, Route, Routes } from 'react-router-dom'
 
 const routeGuard = async () => {
     const token = document.cookie
@@ -24,17 +25,19 @@ const routeGuard = async () => {
 
 function ProtectedRoute({children, ...rest}) {
     return (
+      <Routes>
         <Route
           {...rest}
           render={() => {
             return routeGuard() === true ? (
               children
             ) : (
-              <Redirect to="/login" />
+              <redirect to="/login" />
             );
           }}
         />
-      );
+      </Routes>  
+    );
 }
 
 export default ProtectedRoute

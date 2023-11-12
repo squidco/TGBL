@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PlayerForm from "../components/PlayerForm";
 import "../App.css";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import PlayerSearchForm from "../components/PlayerSearchForm";
 import axios from "axios";
 import AuthService from "../services/AuthService";
@@ -54,7 +54,7 @@ function CharacterSelect() {
           <br />
         </div>
         <div className="col-sm-6" onClick={handlePlayerClick}>
-          {redir.to && <Redirect push to={redir.to} />}
+          {redir.to && <redirect push to={redir.to} />}
           <CharacterList characterList={characterList} />
         </div>
       </section>
